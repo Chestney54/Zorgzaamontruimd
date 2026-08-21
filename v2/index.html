@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Zorgzaam Ontruimd | Huisontruiming & oplevering met respect, heel Nederland</title>
+<meta name="description" content="Zorgzaam Ontruimd verzorgt huisontruimingen en bezemschone oplevering door heel Nederland. Persoonlijk, respectvol en zonder zorgen. Vraag een gratis, vrijblijvende inventarisatie aan.">
+<meta name="keywords" content="huisontruiming, woningontruiming, ontruimingsbedrijf, bezemschone oplevering, sterfhuis ontruimen, inboedel opruimen, ontruiming heel Nederland">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://www.zorgzaamontruimd.nl/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Zorgzaam Ontruimd | Huisontruiming & oplevering met respect">
+<meta property="og:description" content="Ontruiming en bezemschone oplevering met zorg en aandacht. Gratis, vrijblijvende inventarisatie — heel Nederland.">
+<meta property="og:locale" content="nl_NL">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Zorgzaam Ontruimd",
+  "description": "Huisontruiming en bezemschone oplevering met respect en aandacht, actief in heel Nederland.",
+  "areaServed": "Nederland",
+  "priceRange": "Gratis inventarisatie",
+  "url": "https://www.zorgzaamontruimd.nl/"
+}
+</script>
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Ccircle cx='22' cy='22' r='20' fill='%23F3F1EA' stroke='%2326424A' stroke-width='1.5'/%3E%3Cpath d='M14 24.5L22 16L30 24.5' fill='none' stroke='%2326424A' stroke-width='2.3' stroke-linecap='round' stroke-linejoin='round'/%3E%3Cpath d='M16.5 23V31.5H27.5V23' fill='none' stroke='%2326424A' stroke-width='2.3' stroke-linejoin='round'/%3E%3Cpath d='M13 27.5C15.7 30.2 18.7 31.5 22 31.5C25.3 31.5 28.3 30.2 31 27.5' fill='none' stroke='%23B5623A' stroke-width='2.1' stroke-linecap='round'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --bg: #F3F1EA;
+    --bg-warm: #ECE7DB;
+    --kaart: #FBFAF6;
+    --deep: #26424A;
+    --deep-donker: #1B3138;
+    --koper: #B5623A;
+    --koper-licht: #C97D57;
+    --inkt: #1C2B2E;
+    --inkt-zacht: #52605F;
+    --lijn: rgba(28, 43, 46, 0.15);
+    --lijn-sterk: rgba(28, 43, 46, 0.3);
+    --radius: 3px;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--inkt);
+    font-family: 'Inter', sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, .display {
+    font-family: 'Cormorant', serif;
+    font-weight: 500;
+    color: var(--inkt);
+    line-height: 1.08;
+    letter-spacing: -0.005em;
+  }
+
+  a { color: inherit; text-decoration: none; }
+  img, svg { display: block; max-width: 100%; }
+  .container { max-width: 1140px; margin: 0 auto; padding: 0 28px; }
+  :focus-visible { outline: 2px solid var(--koper); outline-offset: 3px; }
+
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  /* ===== LABEL / VAK ELEMENT (signature) ===== */
+  .vak-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.03em;
+    color: var(--koper);
+    border: 1px solid var(--lijn-sterk);
+    padding: 7px 13px;
+    background: var(--kaart);
+  }
+  .vak-label::before { content: "◆"; font-size: 0.6rem; }
+
+  /* ===== HEADER ===== */
+  header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(243, 241, 234, 0.94);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--lijn);
+  }
+
+  .header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 28px;
+  }
+
+  .logo {
+    font-family: 'Cormorant', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .logo-mark { width: 36px; height: 36px; flex-shrink: 0; }
+
+  nav ul { list-style: none; display: flex; gap: 26px; }
+  nav a {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--inkt-zacht);
+    transition: color 0.2s ease;
+  }
+  nav a:hover { color: var(--deep); }
+
+  .header-phone {
+    display: none;
+    align-items: center;
+    gap: 7px;
+    font-weight: 500;
+    font-size: 0.88rem;
+    color: var(--deep);
+    white-space: nowrap;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 14px 26px;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    cursor: pointer;
+    border: 1px solid transparent;
+  }
+  .btn-primary { background: var(--deep); color: var(--bg); }
+  .btn-primary:hover { background: var(--deep-donker); }
+  .btn-outline { background: transparent; border-color: var(--inkt); color: var(--inkt); }
+  .btn-outline:hover { background: var(--inkt); color: var(--bg); }
+  .btn-copper { background: var(--koper); color: var(--kaart); }
+  .btn-copper:hover { background: #9C4F2E; }
+
+  .header-cta { display: none; }
+  @media (min-width: 860px) { .header-cta { display: inline-flex; } }
+  @media (min-width: 1150px) { .header-phone { display: inline-flex; } }
+  .nav-toggle { display: none; background: none; border: none; cursor: pointer; }
+
+  /* ===== HERO ===== */
+  .hero { padding: 80px 0 0; overflow: hidden; }
+
+  .eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--deep);
+    margin-bottom: 30px;
+  }
+  .eyebrow::after { content: ""; flex: 1; max-width: 90px; height: 1px; background: var(--lijn-sterk); }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 5.2vw, 4.4rem);
+    margin-bottom: 30px;
+    max-width: 14ch;
+  }
+  .hero h1 em { font-style: italic; color: var(--koper); font-weight: 500; }
+
+  .hero p.lead {
+    font-size: 1.12rem;
+    color: var(--inkt-zacht);
+    max-width: 46ch;
+    margin-bottom: 40px;
+    line-height: 1.7;
+  }
+
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 56px; }
+
+  .vak-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
+
+  .hero-divider { height: 1px; background: var(--lijn); margin-bottom: 32px; }
+
+  .hero-stats { display: flex; gap: 52px; flex-wrap: wrap; padding-bottom: 64px; }
+  .hero-stat b {
+    display: block;
+    font-family: 'Cormorant', serif;
+    font-weight: 500;
+    font-size: 2rem;
+    color: var(--koper);
+    margin-bottom: 4px;
+  }
+  .hero-stat span { font-size: 0.85rem; color: var(--inkt-zacht); }
+
+  /* ===== SECTIONS GENERIC ===== */
+  section { padding: 96px 0; }
+  .section-head { max-width: 640px; margin-bottom: 56px; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .section-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); margin-bottom: 16px; }
+  .section-head p { color: var(--inkt-zacht); font-size: 1.05rem; }
+
+  /* ===== DIENSTEN ===== */
+  .diensten { background: var(--bg-warm); border-top: 1px solid var(--lijn); border-bottom: 1px solid var(--lijn); }
+
+  .diensten-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1px; background: var(--lijn); border: 1px solid var(--lijn); }
+
+  .dienst-card {
+    padding: 36px 30px;
+    background: var(--kaart);
+    transition: background 0.2s ease;
+  }
+  .dienst-card:hover { background: var(--bg); }
+
+  .dienst-num { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--koper); margin-bottom: 20px; letter-spacing: 0.03em; }
+  .dienst-card h3 { font-size: 1.4rem; margin-bottom: 12px; font-weight: 500; }
+  .dienst-card p { color: var(--inkt-zacht); font-size: 0.95rem; }
+
+  /* ===== WERKWIJZE ===== */
+  .werkwijze-list { display: flex; flex-direction: column; }
+
+  .stap {
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 32px;
+    padding: 36px 0;
+    border-top: 1px solid var(--lijn);
+  }
+  .stap:last-child { border-bottom: 1px solid var(--lijn); }
+
+  .stap-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--koper); letter-spacing: 0.03em; padding-top: 4px; }
+  .stap-content h3 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 500; }
+  .stap-content p { color: var(--inkt-zacht); max-width: 60ch; }
+
+  /* ===== BELOFTE ===== */
+  .belofte {
+    background: var(--deep);
+    color: var(--bg);
+    padding: 68px 56px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 52px;
+    align-items: center;
+  }
+  .belofte h2 { color: var(--bg); font-size: clamp(1.9rem, 3vw, 2.5rem); margin-bottom: 20px; font-weight: 500; }
+  .belofte p { color: rgba(243, 241, 234, 0.82); font-size: 1.04rem; line-height: 1.7; }
+
+  .belofte-stats { display: flex; flex-direction: column; gap: 24px; }
+  .belofte-stat { border-left: 1.5px solid var(--koper); padding-left: 20px; }
+  .belofte-stat .num { font-family: 'Cormorant', serif; font-weight: 500; font-size: 2rem; display: block; }
+  .belofte-stat .lbl { font-size: 0.86rem; color: rgba(243, 241, 234, 0.65); }
+
+  /* ===== QUOTE ===== */
+  .quote-section { background: var(--bg-warm); border-top: 1px solid var(--lijn); border-bottom: 1px solid var(--lijn); }
+  .quote-block { max-width: 780px; margin: 0 auto; text-align: center; }
+  .quote-block blockquote {
+    font-family: 'Cormorant', serif;
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(1.5rem, 2.6vw, 2rem);
+    line-height: 1.4;
+    margin-bottom: 24px;
+    color: var(--inkt);
+  }
+  .quote-block cite { font-style: normal; font-family: 'JetBrains Mono', monospace; color: var(--inkt-zacht); font-size: 0.8rem; letter-spacing: 0.02em; }
+
+  /* ===== FAQ ===== */
+  .faq-list { max-width: 800px; margin: 0 auto; }
+  details { border-bottom: 1px solid var(--lijn); padding: 26px 0; }
+  details summary {
+    cursor: pointer;
+    font-family: 'Cormorant', serif;
+    font-size: 1.25rem;
+    font-weight: 500;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+  }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after { content: "+"; font-size: 1.5rem; color: var(--koper); font-weight: 400; margin-left: 20px; }
+  details[open] summary::after { content: "\2212"; }
+  details p { margin-top: 16px; color: var(--inkt-zacht); max-width: 64ch; }
+
+  /* ===== CONTACT ===== */
+  .contact { background: var(--bg-warm); border-top: 1px solid var(--lijn); }
+  .contact-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; }
+  .contact-info h2 { font-size: clamp(1.9rem, 3vw, 2.5rem); margin-bottom: 18px; }
+  .contact-info p.lead { color: var(--inkt-zacht); margin-bottom: 36px; max-width: 42ch; }
+
+  .contact-detail { display: flex; align-items: center; gap: 16px; padding: 18px 0; border-top: 1px solid var(--lijn); }
+  .contact-detail:last-child { border-bottom: 1px solid var(--lijn); }
+  .contact-detail .ic {
+    width: 40px; height: 40px;
+    border: 1px solid var(--deep);
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .contact-detail .ic svg { width: 17px; height: 17px; stroke: var(--deep); }
+  .contact-detail .txt-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--inkt-zacht); letter-spacing: 0.02em; }
+  .contact-detail .txt-val { font-weight: 500; font-size: 1.05rem; margin-top: 2px; }
+
+  form {
+    background: var(--kaart);
+    border: 1px solid var(--lijn-sterk);
+    padding: 40px;
+  }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .field { margin-bottom: 20px; }
+  .field label {
+    display: block;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 0.02em;
+    margin-bottom: 9px;
+    color: var(--inkt-zacht);
+    text-transform: uppercase;
+  }
+  .field input, .field select, .field textarea {
+    width: 100%;
+    padding: 13px 15px;
+    border: 1px solid var(--lijn-sterk);
+    background: var(--bg);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: var(--inkt);
+    border-radius: 0;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--koper); outline: none; }
+  .field textarea { resize: vertical; min-height: 90px; }
+  .form-note { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--inkt-zacht); margin-top: 16px; text-align: center; }
+
+  /* ===== FOOTER ===== */
+  footer { background: var(--inkt); color: var(--bg); padding: 60px 0 30px; }
+  .footer-inner { display: grid; grid-template-columns: 1.4fr 1fr 1fr; gap: 44px; margin-bottom: 44px; }
+  .footer-logo { font-family: 'Cormorant', serif; font-size: 1.5rem; margin-bottom: 16px; font-weight: 600; }
+  .footer-inner p { color: rgba(243, 241, 234, 0.6); font-size: 0.92rem; max-width: 36ch; }
+  .footer-col h4 { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--koper-licht); margin-bottom: 18px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 11px; }
+  .footer-col a { color: rgba(243, 241, 234, 0.75); font-size: 0.92rem; }
+  .footer-col a:hover { color: var(--bg); }
+  .footer-bottom {
+    border-top: 1px solid rgba(243, 241, 234, 0.14);
+    padding-top: 26px;
+    display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: rgba(243, 241, 234, 0.5);
+  }
+
+  @media (max-width: 900px) {
+    .belofte { grid-template-columns: 1fr; padding: 44px 30px; }
+    .contact-inner { grid-template-columns: 1fr; }
+    .footer-inner { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 720px) {
+    nav { display: none; }
+    .nav-toggle { display: block; }
+    .stap { grid-template-columns: 1fr; gap: 10px; }
+    .form-row { grid-template-columns: 1fr; }
+    section { padding: 68px 0; }
+    .hero { padding: 56px 0 0; }
+    .hero-stats { gap: 32px; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner container">
+    <a href="#top" class="logo">
+      <svg class="logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="22" cy="22" r="20" stroke="#26424A" stroke-width="1.1"/>
+        <path d="M14 24.5L22 16L30 24.5" stroke="#26424A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+        <path d="M16.5 23V31.5H27.5V23" stroke="#26424A" stroke-width="1.7" stroke-linejoin="round"/>
+        <path d="M13 27.5C15.7 30.2 18.7 31.5 22 31.5C25.3 31.5 28.3 30.2 31 27.5" stroke="#B5623A" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      Zorgzaam Ontruimd
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#diensten">Diensten</a></li>
+        <li><a href="#werkwijze">Werkwijze</a></li>
+        <li><a href="#waarom">Waarom wij</a></li>
+        <li><a href="#faq">Vragen</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+    <div style="display:flex; align-items:center; gap:24px;">
+      <a href="tel:+31000000000" class="header-phone">
+        <svg viewBox="0 0 24 24" fill="none" style="width:16px;height:16px;stroke:var(--deep);"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.4 2.1L8 9.7a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z" stroke-width="1.6" stroke-linejoin="round"/></svg>
+        [telefoonnummer volgt]
+      </a>
+      <a href="#contact" class="btn btn-primary header-cta">Gratis inventarisatie</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <span class="eyebrow">Ontruiming &amp; oplevering — heel Nederland</span>
+      <h1>Wat achterblijft, <em>verdient rust.</em></h1>
+      <p class="lead">Een huis ontruimen is nooit zomaar een klus — het is vaak het laatste hoofdstuk van een plek. Wij nemen het over met stilte, precisie en respect, van eerste rondgang tot bezemschone oplevering.</p>
+
+      <div class="vak-row">
+        <span class="vak-label">gratis inventarisatie</span>
+        <span class="vak-label">vaste prijs vooraf</span>
+        <span class="vak-label">heel nederland</span>
+      </div>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary">Gratis inventarisatie aanvragen</a>
+        <a href="#werkwijze" class="btn btn-outline">Onze werkwijze</a>
+      </div>
+
+      <div class="hero-divider"></div>
+
+      <div class="hero-stats">
+        <div class="hero-stat"><b>Gratis</b><span>Eerste bezoek, altijd vrijblijvend</span></div>
+        <div class="hero-stat"><b>Vast</b><span>Eén prijs, afgesproken vooraf</span></div>
+        <div class="hero-stat"><b>Zorgvuldig</b><span>Respect voor spullen en herinneringen</span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DIENSTEN -->
+  <section class="diensten" id="diensten">
+    <div class="container">
+      <div class="section-head">
+        <h2>Wat wij voor u kunnen doen</h2>
+        <p>Van een enkele kamer tot een volledige woning — wij passen ons aan op wat nodig is.</p>
+      </div>
+      <div class="diensten-grid">
+
+        <div class="dienst-card">
+          <div class="dienst-num">VAK — 01</div>
+          <h3>Woningontruiming</h3>
+          <p>Complete ontruiming van huis of appartement, bijvoorbeeld bij verhuizing, verkoop of na een overlijden. Wij nemen de tijd die nodig is.</p>
+        </div>
+
+        <div class="dienst-card">
+          <div class="dienst-num">VAK — 02</div>
+          <h3>Bezemschone oplevering</h3>
+          <p>Wij zorgen dat de woning schoon en leeg wordt opgeleverd aan verhuurder, makelaar of nieuwe bewoner — klaar voor de sleuteloverdracht.</p>
+        </div>
+
+        <div class="dienst-card">
+          <div class="dienst-num">VAK — 03</div>
+          <h3>Ontruiming met zorgzaamheid</h3>
+          <p>Speciale aandacht voor situaties met een persoonlijk verhaal: een sterfhuis, een dierbare spullenrijke woning. Wij werken rustig en met respect.</p>
+        </div>
+
+        <div class="dienst-card">
+          <div class="dienst-num">VAK — 04</div>
+          <h3>Inboedel opruimen &amp; opkoop</h3>
+          <p>Wij sorteren spullen op wens: bewaren, doneren, verkopen of afvoeren. Waardevolle items kunnen wij opkopen, wat in mindering komt op uw offerte.</p>
+        </div>
+
+        <div class="dienst-card">
+          <div class="dienst-num">VAK — 05</div>
+          <h3>Afvoer &amp; een tweede leven</h3>
+          <p>Verantwoorde afvoer van meubels en huisraad. Bruikbare spullen krijgen waar mogelijk een tweede leven via kringloop of een goed doel.</p>
+        </div>
+
+        <div class="dienst-card">
+          <div class="dienst-num">VAK — 06</div>
+          <h3>Spoedontruiming</h3>
+          <p>Korte deadline door verhuurder of makelaar? Wij schakelen snel, zonder in te leveren op zorgvuldigheid.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- WERKWIJZE -->
+  <section id="werkwijze">
+    <div class="container">
+      <div class="section-head">
+        <h2>Zo werken wij</h2>
+        <p>Vier stappen, helder en zonder verrassingen — van eerste contact tot opgeleverde woning.</p>
+      </div>
+
+      <div class="werkwijze-list">
+        <div class="stap">
+          <div class="stap-label mono">STAP — 01</div>
+          <div class="stap-content">
+            <h3>Gratis inventarisatie</h3>
+            <p>Wij komen langs, bekijken de situatie rustig samen met u en luisteren naar wat er nodig is. Geen verplichtingen, geen druk.</p>
+          </div>
+        </div>
+        <div class="stap">
+          <div class="stap-label mono">STAP — 02</div>
+          <div class="stap-content">
+            <h3>Heldere offerte</h3>
+            <p>U ontvangt een vaste prijs, afgestemd op de omvang van de ontruiming. Geen verborgen kosten achteraf.</p>
+          </div>
+        </div>
+        <div class="stap">
+          <div class="stap-label mono">STAP — 03</div>
+          <div class="stap-content">
+            <h3>Zorgvuldige uitvoering</h3>
+            <p>Op de afgesproken datum ontruimen wij de woning. Persoonlijke of waardevolle spullen behandelen wij met bijzondere aandacht.</p>
+          </div>
+        </div>
+        <div class="stap">
+          <div class="stap-label mono">STAP — 04</div>
+          <div class="stap-content">
+            <h3>Bezemschone oplevering</h3>
+            <p>Wij ronden af met een schone, lege woning — klaar voor overdracht aan verhuurder, makelaar of nieuwe bewoner.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WAAROM / BELOFTE -->
+  <section id="waarom">
+    <div class="container">
+      <div class="belofte">
+        <div>
+          <h2>Wij behandelen elk huis alsof het ons eigen huis was.</h2>
+          <p>Achter elke ontruiming zit een verhaal — een verhuizing, een nieuw begin, soms een afscheid. Wij nemen de tijd om dat te respecteren, en werken pas snel wanneer dat nodig is, nooit over de rug van zorgvuldigheid.</p>
+        </div>
+        <div class="belofte-stats">
+          <div class="belofte-stat"><span class="num">100%</span><span class="lbl">Vaste prijsafspraak vooraf</span></div>
+          <div class="belofte-stat"><span class="num">0&nbsp;&euro;</span><span class="lbl">Kosten voor de inventarisatie</span></div>
+          <div class="belofte-stat"><span class="num">2e kans</span><span class="lbl">Bruikbare spullen naar kringloop of goed doel</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUOTE -->
+  <section class="quote-section">
+    <div class="container">
+      <div class="quote-block">
+        <blockquote>&ldquo;Ze namen echt de tijd om met ons mee te denken, ook op de momenten dat het even zwaar was. Het voelde nooit als zomaar een klus.&rdquo;</blockquote>
+        <cite>— EEN FAMILIE DIE WIJ MOCHTEN HELPEN</cite>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="container">
+      <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+        <h2 style="margin:0 auto;">Veelgestelde vragen</h2>
+        <p>Staat uw vraag er niet bij? Neem gerust contact op.</p>
+      </div>
+
+      <div class="faq-list">
+        <details>
+          <summary>Wat kost een huisontruiming?</summary>
+          <p>Dat hangt af van de omvang van de woning en de hoeveelheid inboedel. Na de gratis inventarisatie ontvangt u een vaste prijs, zodat u vooraf precies weet waar u aan toe bent.</p>
+        </details>
+        <details>
+          <summary>Hoe snel kunnen jullie langskomen?</summary>
+          <p>Meestal binnen enkele dagen voor de inventarisatie. Bij spoed, bijvoorbeeld door een deadline van een verhuurder, kijken wij graag wat er sneller mogelijk is.</p>
+        </details>
+        <details>
+          <summary>Werken jullie ook buiten mijn regio?</summary>
+          <p>Ja, wij zijn actief door heel Nederland en komen graag bij u langs, waar u ook woont.</p>
+        </details>
+        <details>
+          <summary>Wat gebeurt er met persoonlijke spullen en herinneringen?</summary>
+          <p>Wij bespreken vooraf met u wat bewaard, gedoneerd, verkocht of afgevoerd mag worden. Persoonlijke of gevoelige items behandelen wij altijd met extra zorg en overleg.</p>
+        </details>
+        <details>
+          <summary>Is de woning na afloop echt helemaal leeg en schoon?</summary>
+          <p>Ja. Wij leveren de woning bezemschoon op, klaar voor overdracht aan verhuurder, makelaar of nieuwe bewoner.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="container contact-inner">
+      <div class="contact-info">
+        <span class="eyebrow" style="margin-bottom:20px;">Gratis &amp; vrijblijvend</span>
+        <h2>Laten we rustig kijken wat er nodig is.</h2>
+        <p class="lead">Vul het formulier in of neem direct contact op. Wij plannen een gratis inventarisatie in op een moment dat u uitkomt.</p>
+
+        <div class="contact-detail">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.4 2.1L8 9.7a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <div><div class="txt-label mono">TELEFOON</div><div class="txt-val">[telefoonnummer volgt]</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4h16v16H4V4z" stroke-width="1.6" stroke-linejoin="round"/><path d="M4 6l8 7 8-7" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <div><div class="txt-label mono">E-MAIL</div><div class="txt-val">[e-mailadres volgt]</div></div>
+        </div>
+        <div class="contact-detail">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a7 7 0 0114 0c0 5.5-7 10-7 10z" stroke-width="1.6"/></svg></div>
+          <div><div class="txt-label mono">WERKGEBIED</div><div class="txt-val">Heel Nederland</div></div>
+        </div>
+      </div>
+
+      <form action="#" method="post">
+        <div class="form-row">
+          <div class="field">
+            <label for="naam">Naam</label>
+            <input type="text" id="naam" name="naam" required>
+          </div>
+          <div class="field">
+            <label for="telefoon">Telefoonnummer</label>
+            <input type="tel" id="telefoon" name="telefoon" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="email">E-mailadres</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="field">
+          <label for="plaats">Plaats van de woning</label>
+          <input type="text" id="plaats" name="plaats">
+        </div>
+        <div class="field">
+          <label for="bericht">Vertel kort over de situatie</label>
+          <textarea id="bericht" name="bericht" placeholder="Bijvoorbeeld: type woning, gewenste periode, bijzonderheden..."></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Vraag gratis inventarisatie aan</button>
+        <p class="form-note">GEEN KOSTEN — GEEN VERPLICHTINGEN — REACTIE BINNEN 1 WERKDAG</p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div>
+        <div class="footer-logo">Zorgzaam Ontruimd</div>
+        <p>Huisontruiming en bezemschone oplevering met respect voor mensen en hun spullen. Actief door heel Nederland.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigatie</h4>
+        <ul>
+          <li><a href="#diensten">Diensten</a></li>
+          <li><a href="#werkwijze">Werkwijze</a></li>
+          <li><a href="#waarom">Waarom wij</a></li>
+          <li><a href="#faq">Veelgestelde vragen</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <ul>
+          <li>[telefoonnummer volgt]</li>
+          <li>[e-mailadres volgt]</li>
+          <li>Heel Nederland</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 ZORGZAAM ONTRUIMD</span>
+      <span>MET ZORG GEBOUWD</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>Huisontruiming na overlijden | Gratis inventarisatie | Zorgzaam Ontruimd</title>
+<meta name="description" content="Huis ontruimen na overlijden? Gratis en vrijblijvende inventarisatie, vaste prijs vooraf, bezemschone oplevering. Wij nemen het rustig en respectvol uit handen — heel Nederland.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #F3F1EA; --bg-warm: #ECE7DB; --kaart: #FBFAF6;
+    --deep: #26424A; --deep-donker: #1B3138;
+    --koper: #B5623A; --koper-licht: #C97D57;
+    --inkt: #1C2B2E; --inkt-zacht: #52605F;
+    --lijn: rgba(28, 43, 46, 0.15); --lijn-sterk: rgba(28, 43, 46, 0.3);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: var(--bg); color: var(--inkt); font-family: 'Inter', sans-serif; line-height: 1.6; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: 'Cormorant', serif; font-weight: 500; color: var(--inkt); line-height: 1.1; }
+  a { color: inherit; text-decoration: none; }
+  img, svg { display: block; max-width: 100%; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+  :focus-visible { outline: 2px solid var(--koper); outline-offset: 3px; }
+  .mono { font-family: 'JetBrains Mono', monospace; }
+
+  .vak-label {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.03em;
+    color: var(--koper); border: 1px solid var(--lijn-sterk); padding: 6px 12px; background: var(--kaart);
+  }
+  .vak-label::before { content: "◆"; font-size: 0.58rem; }
+
+  .bar { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; border-bottom: 1px solid var(--lijn); }
+  .logo { font-family: 'Cormorant', serif; font-size: 1.3rem; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+  .logo-mark { width: 32px; height: 32px; flex-shrink: 0; }
+  .bar-phone { display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 0.92rem; color: var(--deep); }
+  .bar-phone svg { width: 17px; height: 17px; stroke: var(--deep); }
+
+  .hero { padding: 44px 0 56px; }
+  .hero-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: start; }
+  .eyebrow { display: inline-flex; align-items: center; gap: 10px; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--deep); margin-bottom: 20px; }
+  .hero h1 { font-size: clamp(2.1rem, 3.8vw, 3rem); margin-bottom: 20px; }
+  .hero h1 em { font-style: italic; color: var(--koper); font-weight: 500; }
+  .hero p.lead { font-size: 1.05rem; color: var(--inkt-zacht); max-width: 48ch; margin-bottom: 26px; line-height: 1.7; }
+  .vak-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 8px; }
+
+  .reassure { margin-top: 28px; padding: 18px 20px; background: var(--kaart); border: 1px solid var(--lijn-sterk); font-size: 0.9rem; color: var(--inkt-zacht); }
+  .reassure strong { color: var(--inkt); font-weight: 600; }
+
+  .form-card { background: var(--kaart); border: 1px solid var(--lijn-sterk); padding: 32px; }
+  .form-card h2 { font-size: 1.5rem; margin-bottom: 6px; font-weight: 500; }
+  .form-card .sub { font-size: 0.88rem; color: var(--inkt-zacht); margin-bottom: 22px; }
+
+  .field { margin-bottom: 16px; }
+  .field label { display: block; font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; letter-spacing: 0.02em; text-transform: uppercase; margin-bottom: 8px; color: var(--inkt-zacht); }
+  .field input, .field select, .field textarea {
+    width: 100%; padding: 12px 14px; border: 1px solid var(--lijn-sterk); background: var(--bg);
+    font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--inkt); border-radius: 0;
+  }
+  .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--koper); outline: none; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+  .radio-group { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+  .radio-option { display: flex; align-items: center; gap: 10px; padding: 11px 14px; border: 1px solid var(--lijn-sterk); background: var(--bg); font-size: 0.9rem; cursor: pointer; }
+  .radio-option input { width: auto; margin: 0; }
+
+  .btn { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 15px 24px; font-weight: 500; font-size: 1rem; border: none; cursor: pointer; width: 100%; }
+  .btn-primary { background: var(--deep); color: var(--bg); }
+  .btn-primary:hover { background: var(--deep-donker); }
+  .form-note { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--inkt-zacht); margin-top: 14px; text-align: center; letter-spacing: 0.01em; }
+  .privacy-note { font-size: 0.76rem; color: var(--inkt-zacht); margin-top: 10px; }
+
+  .werkwijze { background: var(--bg-warm); border-top: 1px solid var(--lijn); border-bottom: 1px solid var(--lijn); padding: 60px 0; }
+  .section-head { max-width: 600px; margin-bottom: 40px; }
+  .section-head.center { margin-left: auto; margin-right: auto; text-align: center; }
+  .section-head h2 { font-size: clamp(1.7rem, 2.6vw, 2.1rem); margin-bottom: 10px; font-weight: 500; }
+  .section-head p { color: var(--inkt-zacht); }
+
+  .stappen-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--lijn); border: 1px solid var(--lijn); }
+  .stap-card { padding: 26px 24px; background: var(--kaart); }
+  .stap-num { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: var(--koper); margin-bottom: 14px; }
+  .stap-card h3 { font-size: 1.15rem; margin-bottom: 8px; font-weight: 500; }
+  .stap-card p { font-size: 0.88rem; color: var(--inkt-zacht); }
+
+  .waarom { padding: 60px 0; }
+  .waarom-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--lijn); border: 1px solid var(--lijn); }
+  .waarom-card { padding: 28px 24px; background: var(--kaart); }
+  .waarom-card h3 { font-size: 1.1rem; margin-bottom: 8px; font-weight: 500; }
+  .waarom-card p { font-size: 0.9rem; color: var(--inkt-zacht); }
+
+  .faq { background: var(--bg-warm); padding: 60px 0; }
+  .faq-list { max-width: 720px; margin: 0 auto; }
+  details { border-bottom: 1px solid var(--lijn); padding: 20px 0; }
+  details summary { cursor: pointer; font-family: 'Cormorant', serif; font-size: 1.15rem; font-weight: 500; display: flex; justify-content: space-between; align-items: center; list-style: none; }
+  details summary::-webkit-details-marker { display: none; }
+  details summary::after { content: "+"; font-size: 1.4rem; color: var(--koper); font-weight: 400; margin-left: 16px; }
+  details[open] summary::after { content: "\2212"; }
+  details p { margin-top: 12px; color: var(--inkt-zacht); font-size: 0.92rem; max-width: 62ch; }
+
+  .final-cta { padding: 60px 0 76px; text-align: center; }
+  .final-cta h2 { font-size: clamp(1.7rem, 2.8vw, 2.2rem); margin-bottom: 14px; }
+  .final-cta p { color: var(--inkt-zacht); max-width: 50ch; margin: 0 auto 26px; }
+  .final-cta .btn { width: auto; padding: 16px 36px; }
+
+  footer { background: var(--inkt); color: rgba(243,241,234,0.6); padding: 26px 0; text-align: center; font-family: 'JetBrains Mono', monospace; font-size: 0.76rem; }
+
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; }
+    .stappen-grid { grid-template-columns: 1fr 1fr; }
+    .waarom-grid { grid-template-columns: 1fr; }
+  }
+  @media (max-width: 600px) {
+    .stappen-grid { grid-template-columns: 1fr; }
+    .field-row { grid-template-columns: 1fr; }
+    .form-card { padding: 22px; }
+    .bar-phone span.txt { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
+</style>
+</head>
+<body>
+
+<div class="bar container" style="max-width:1100px; margin:0 auto;">
+  <a href="#" class="logo">
+    <svg class="logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="22" cy="22" r="20" stroke="#26424A" stroke-width="1.1"/>
+      <path d="M14 24.5L22 16L30 24.5" stroke="#26424A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M16.5 23V31.5H27.5V23" stroke="#26424A" stroke-width="1.7" stroke-linejoin="round"/>
+      <path d="M13 27.5C15.7 30.2 18.7 31.5 22 31.5C25.3 31.5 28.3 30.2 31 27.5" stroke="#B5623A" stroke-width="1.6" stroke-linecap="round"/>
+    </svg>
+    Zorgzaam Ontruimd
+  </a>
+  <a href="tel:+31000000000" class="bar-phone">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.4 2.1L8 9.7a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z" stroke-width="1.6" stroke-linejoin="round"/></svg>
+    <span class="txt">[telefoonnummer volgt]</span>
+  </a>
+</div>
+
+<main>
+  <section class="hero">
+    <div class="container hero-inner">
+      <div class="hero-copy">
+        <span class="eyebrow">Ontruiming na overlijden — heel Nederland</span>
+        <h1>Het huis van een dierbare, <em>rustig en zorgvuldig</em> leeggehaald.</h1>
+        <p class="lead">U heeft al genoeg aan uw hoofd. Wij nemen de ontruiming van begin tot eind uit handen — met aandacht voor persoonlijke spullen en een vaste prijs die u vooraf weet.</p>
+
+        <div class="vak-row">
+          <span class="vak-label">gratis inventarisatie</span>
+          <span class="vak-label">vaste prijs vooraf</span>
+          <span class="vak-label">bezemschoon opgeleverd</span>
+        </div>
+
+        <div class="reassure">
+          <strong>Geen verkoper aan de keukentafel.</strong> Wij komen langs, bekijken de woning rustig samen met u en sturen daarna pas een heldere offerte per e-mail. Geen druk, geen verplichtingen.
+        </div>
+      </div>
+
+      <div class="form-card" id="offerte-form">
+        <h2>Vraag een gratis inventarisatie aan</h2>
+        <p class="sub">Twee stappen, klaar in een halve minuut.</p>
+
+        <form action="#" method="post">
+          <div class="field">
+            <label>Waar gaat het om?</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="situatie" value="overlijden"> Ontruiming na overlijden</label>
+              <label class="radio-option"><input type="radio" name="situatie" value="verhuizing"> Ontruiming bij verhuizing</label>
+              <label class="radio-option"><input type="radio" name="situatie" value="oplevering"> Bezemschone oplevering</label>
+              <label class="radio-option"><input type="radio" name="situatie" value="anders"> Iets anders</label>
+            </div>
+          </div>
+
+          <div class="field">
+            <label>Hoe snel moet de woning leeg zijn?</label>
+            <div class="radio-group">
+              <label class="radio-option"><input type="radio" name="spoed" value="spoed"> Op korte termijn / met spoed</label>
+              <label class="radio-option"><input type="radio" name="spoed" value="rustig"> Er is nog geen haast bij</label>
+            </div>
+          </div>
+
+          <div class="field-row">
+            <div class="field">
+              <label for="naam">Naam</label>
+              <input type="text" id="naam" name="naam" required>
+            </div>
+            <div class="field">
+              <label for="telefoon">Telefoonnummer</label>
+              <input type="tel" id="telefoon" name="telefoon" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="email">E-mailadres (optioneel)</label>
+            <input type="email" id="email" name="email">
+          </div>
+          <div class="field">
+            <label for="plaats">Plaats van de woning</label>
+            <input type="text" id="plaats" name="plaats">
+          </div>
+
+          <button type="submit" class="btn btn-primary">Vraag gratis inventarisatie aan</button>
+          <p class="privacy-note">Wij gebruiken uw gegevens alleen om contact met u op te nemen voor een afspraak.</p>
+          <p class="form-note">REACTIE BINNEN 1 WERKDAG</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="werkwijze">
+    <div class="container">
+      <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+        <h2 style="margin:0 auto;">Van eerste contact tot lege woning</h2>
+        <p>Vier stappen, helder en zonder verrassingen.</p>
+      </div>
+      <div class="stappen-grid">
+        <div class="stap-card">
+          <div class="stap-num mono">STAP — 01</div>
+          <h3>U neemt contact op</h3>
+          <p>Vul het formulier in of bel ons. Wij plannen de inventarisatie op een moment dat u uitkomt.</p>
+        </div>
+        <div class="stap-card">
+          <div class="stap-num mono">STAP — 02</div>
+          <h3>Gratis inventarisatie</h3>
+          <p>Wij bekijken de woning rustig samen met u en luisteren naar wat er nodig is.</p>
+        </div>
+        <div class="stap-card">
+          <div class="stap-num mono">STAP — 03</div>
+          <h3>Vaste offerte</h3>
+          <p>U ontvangt een heldere prijs per e-mail. Geen verborgen kosten achteraf.</p>
+        </div>
+        <div class="stap-card">
+          <div class="stap-num mono">STAP — 04</div>
+          <h3>Zorgvuldige uitvoering</h3>
+          <p>Op de afgesproken datum ontruimen wij de woning en leveren bezemschoon op.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="waarom">
+    <div class="container">
+      <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+        <h2 style="margin:0 auto;">Waarom mensen ons bellen</h2>
+      </div>
+      <div class="waarom-grid">
+        <div class="waarom-card">
+          <h3>Respect voor persoonlijke spullen</h3>
+          <p>Wij bespreken vooraf wat bewaard, gedoneerd of afgevoerd mag worden. Nooit over uw hoofd heen.</p>
+        </div>
+        <div class="waarom-card">
+          <h3>Vaste prijs op papier</h3>
+          <p>Eén vaste prijs, vastgelegd in de offerte, voordat wij beginnen. Geen verrassingen achteraf.</p>
+        </div>
+        <div class="waarom-card">
+          <h3>Eén aanspreekpunt</h3>
+          <p>Van eerste gesprek tot oplevering heeft u steeds hetzelfde, vertrouwde contact.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq">
+    <div class="container">
+      <div class="section-head center" style="margin-left:auto;margin-right:auto;">
+        <h2 style="margin:0 auto;">Veelgestelde vragen</h2>
+      </div>
+      <div class="faq-list">
+        <details open>
+          <summary>Is de inventarisatie echt gratis?</summary>
+          <p>Ja, altijd. U betaalt pas als u akkoord gaat met de offerte die daarna volgt. Geen verplichtingen.</p>
+        </details>
+        <details>
+          <summary>Hoe gaan jullie om met spullen die emotionele waarde hebben?</summary>
+          <p>Wij nemen de tijd om samen met u te bepalen wat bewaard moet blijven. Persoonlijke of gevoelige items behandelen wij altijd met extra zorg en overleg vooraf.</p>
+        </details>
+        <details>
+          <summary>Hoe snel kunnen jullie langskomen?</summary>
+          <p>Meestal binnen enkele dagen voor de inventarisatie. Bij spoed, bijvoorbeeld door een deadline van verhuurder of makelaar, kijken wij wat er sneller mogelijk is.</p>
+        </details>
+        <details>
+          <summary>Werken jullie ook buiten mijn regio?</summary>
+          <p>Ja, wij zijn actief door heel Nederland.</p>
+        </details>
+        <details>
+          <summary>Wat gebeurt er met spullen die nog bruikbaar zijn?</summary>
+          <p>Bruikbare spullen krijgen waar mogelijk een tweede leven via kringloop of een goed doel. Waardevolle items kunnen wij opkopen, wat in mindering komt op uw offerte.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="final-cta">
+    <div class="container">
+      <h2>Laten we rustig kijken wat er nodig is.</h2>
+      <p>Gratis en vrijblijvend, zonder verplichtingen. Wij nemen binnen 1 werkdag contact met u op.</p>
+      <a href="#offerte-form" class="btn btn-primary">Vraag gratis inventarisatie aan</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="container">ZORGZAAM ONTRUIMD — ACTIEF IN HEEL NEDERLAND</div>
+</footer>
+
+</body>
+</html>
