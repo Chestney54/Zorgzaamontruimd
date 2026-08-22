@@ -118,6 +118,10 @@
     .form-card { padding: 22px; }
     .bar-note span.txt { display: none; }
   }
+
+  .wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 250; }
+  .wa-btn { width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 28px rgba(37,211,102,0.4); border: 3px solid var(--kaart); }
+  .wa-btn svg { width: 28px; height: 28px; fill: #fff; }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
 </head>
@@ -126,10 +130,10 @@
 <div class="bar container" style="max-width:1100px; margin:0 auto;">
   <a href="#" class="logo">
     <svg class="logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="22" cy="22" r="20" stroke="#1F3A42" stroke-width="1.3"/>
-      <path d="M14 24.5L22 16L30 24.5" stroke="#1F3A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M16.5 23V31.5H27.5V23" stroke="#1F3A42" stroke-width="2" stroke-linejoin="round"/>
-      <path d="M13 27.5C15.7 30.2 18.7 31.5 22 31.5C25.3 31.5 28.3 30.2 31 27.5" stroke="#A85A34" stroke-width="1.8" stroke-linecap="round"/>
+      <path d="M22 2.8L39.5 12.4V31.6L22 41.2L4.5 31.6V12.4L22 2.8Z" stroke="#1F3A42" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M13.5 24.5L22 15.2L30.5 24.5" stroke="#1F3A42" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M16.2 23V32H27.8V23" stroke="#1F3A42" stroke-width="2.1" stroke-linejoin="round"/>
+      <path d="M12.5 28C15.4 30.6 18.6 31.9 22 31.9C25.4 31.9 28.6 30.6 31.5 28" stroke="#A85A34" stroke-width="1.9" stroke-linecap="round"/>
     </svg>
     Zorgzaam Ontruimd
   </a>
@@ -312,6 +316,12 @@
 <footer>
   <div class="container">ZORGZAAM ONTRUIMD — ACTIEF IN HEEL NEDERLAND</div>
 </footer>
+
+<div class="wa-float">
+  <a href="#offerte-form" class="wa-btn" aria-label="WhatsApp (binnenkort beschikbaar — gebruik nu het formulier)">
+    <svg viewBox="0 0 32 32"><path d="M16.001 3C9.096 3 3.5 8.596 3.5 15.5c0 2.42.687 4.68 1.878 6.598L3 29l7.086-2.34a12.44 12.44 0 005.915 1.507c6.905 0 12.5-5.596 12.5-12.5S22.906 3 16.001 3zm7.32 17.784c-.31.874-1.53 1.6-2.51 1.807-.668.14-1.54.252-4.474-.96-3.756-1.556-6.174-5.362-6.362-5.61-.18-.248-1.518-2.02-1.518-3.854s.955-2.736 1.294-3.11c.31-.34.68-.425.906-.425.226 0 .453.002.65.012.226.01.51-.086.797.607.31.75 1.055 2.585 1.146 2.773.09.19.15.412.03.66-.12.248-.18.4-.36.616-.18.216-.378.484-.54.65-.18.185-.367.386-.158.756.21.372.93 1.535 1.996 2.487 1.372 1.224 2.53 1.603 2.9 1.783.37.18.586.15.803-.09.216-.24.93-1.08 1.178-1.45.248-.372.496-.31.833-.186.34.124 2.16 1.02 2.53 1.207.37.185.617.278.708.433.09.155.09.897-.22 1.77z"/></svg>
+  </a>
+</div>
 
 </body>
 </html>
