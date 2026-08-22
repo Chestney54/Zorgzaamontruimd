@@ -11,9 +11,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #F3F1EA; --bg-warm: #ECE7DB; --kaart: #FBFAF6;
-    --deep: #26424A; --deep-donker: #1B3138;
-    --koper: #B5623A; --koper-licht: #C97D57;
+    --bg: #F1EFE4; --bg-warm: #E9E3D3; --kaart: #FBFAF6;
+    --deep: #1F3A42; --deep-donker: #16292F;
+    --koper: #A85A34; --koper-licht: #C97D57;
     --inkt: #1C2B2E; --inkt-zacht: #52605F;
     --lijn: rgba(28, 43, 46, 0.15); --lijn-sterk: rgba(28, 43, 46, 0.3);
   }
@@ -36,8 +36,8 @@
   .bar { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; border-bottom: 1px solid var(--lijn); }
   .logo { font-family: 'Cormorant', serif; font-size: 1.3rem; font-weight: 600; display: flex; align-items: center; gap: 10px; }
   .logo-mark { width: 32px; height: 32px; flex-shrink: 0; }
-  .bar-phone { display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 0.92rem; color: var(--deep); }
-  .bar-phone svg { width: 17px; height: 17px; stroke: var(--deep); }
+  .bar-note { display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 0.88rem; color: var(--inkt-zacht); }
+  .bar-note svg { width: 16px; height: 16px; stroke: var(--koper); flex-shrink: 0; }
 
   .hero { padding: 44px 0 56px; }
   .hero-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: start; }
@@ -116,7 +116,7 @@
     .stappen-grid { grid-template-columns: 1fr; }
     .field-row { grid-template-columns: 1fr; }
     .form-card { padding: 22px; }
-    .bar-phone span.txt { display: none; }
+    .bar-note span.txt { display: none; }
   }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
@@ -126,17 +126,17 @@
 <div class="bar container" style="max-width:1100px; margin:0 auto;">
   <a href="#" class="logo">
     <svg class="logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="22" cy="22" r="20" stroke="#26424A" stroke-width="1.1"/>
-      <path d="M14 24.5L22 16L30 24.5" stroke="#26424A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M16.5 23V31.5H27.5V23" stroke="#26424A" stroke-width="1.7" stroke-linejoin="round"/>
-      <path d="M13 27.5C15.7 30.2 18.7 31.5 22 31.5C25.3 31.5 28.3 30.2 31 27.5" stroke="#B5623A" stroke-width="1.6" stroke-linecap="round"/>
+      <circle cx="22" cy="22" r="20" stroke="#1F3A42" stroke-width="1.3"/>
+      <path d="M14 24.5L22 16L30 24.5" stroke="#1F3A42" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M16.5 23V31.5H27.5V23" stroke="#1F3A42" stroke-width="2" stroke-linejoin="round"/>
+      <path d="M13 27.5C15.7 30.2 18.7 31.5 22 31.5C25.3 31.5 28.3 30.2 31 27.5" stroke="#A85A34" stroke-width="1.8" stroke-linecap="round"/>
     </svg>
     Zorgzaam Ontruimd
   </a>
-  <a href="tel:+31000000000" class="bar-phone">
-    <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.4 2.1L8 9.7a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z" stroke-width="1.6" stroke-linejoin="round"/></svg>
-    <span class="txt">[telefoonnummer volgt]</span>
-  </a>
+  <span class="bar-note">
+    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <span class="txt">Reactie binnen 1 werkdag</span>
+  </span>
 </div>
 
 <main>
@@ -227,7 +227,7 @@
         <div class="stap-card">
           <div class="stap-num mono">STAP — 01</div>
           <h3>U neemt contact op</h3>
-          <p>Vul het formulier in of bel ons. Wij plannen de inventarisatie op een moment dat u uitkomt.</p>
+          <p>Vul het formulier in. Wij plannen de inventarisatie op een moment dat u uitkomt.</p>
         </div>
         <div class="stap-card">
           <div class="stap-num mono">STAP — 02</div>
@@ -251,7 +251,7 @@
   <section class="waarom">
     <div class="container">
       <div class="section-head center" style="margin-left:auto;margin-right:auto;">
-        <h2 style="margin:0 auto;">Waarom mensen ons bellen</h2>
+        <h2 style="margin:0 auto;">Waarom mensen voor ons kiezen</h2>
       </div>
       <div class="waarom-grid">
         <div class="waarom-card">
