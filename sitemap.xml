@@ -6,47 +6,42 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.zorgzaamontruimd.nl/v2/index.html</loc>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://www.zorgzaamontruimd.nl/v2/diensten/woningontruiming.html</loc>
+    <loc>https://www.zorgzaamontruimd.nl/diensten/woningontruiming.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.zorgzaamontruimd.nl/v2/diensten/sterfhuis-nalatenschap.html</loc>
+    <loc>https://www.zorgzaamontruimd.nl/diensten/sterfhuis-nalatenschap.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.zorgzaamontruimd.nl/v2/diensten/bezemschone-oplevering.html</loc>
+    <loc>https://www.zorgzaamontruimd.nl/diensten/bezemschone-oplevering.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.zorgzaamontruimd.nl/v2/diensten/bedrijfsontruiming.html</loc>
+    <loc>https://www.zorgzaamontruimd.nl/diensten/bedrijfsontruiming.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.zorgzaamontruimd.nl/v2/diensten/seniorenverhuizing.html</loc>
+    <loc>https://www.zorgzaamontruimd.nl/diensten/seniorenverhuizing.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.zorgzaamontruimd.nl/v2/diensten/spoedontruiming.html</loc>
+    <loc>https://www.zorgzaamontruimd.nl/diensten/spoedontruiming.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.zorgzaamontruimd.nl/v2/landing-google-ads.html</loc>
+    <loc>https://www.zorgzaamontruimd.nl/landing-google-ads.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   <url>
-    <loc>https://www.zorgzaamontruimd.nl/v2/landing-meta-ads.html</loc>
+    <loc>https://www.zorgzaamontruimd.nl/landing-meta-ads.html</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

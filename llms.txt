@@ -30,14 +30,14 @@ Heel Nederland: Noord-Holland, Zuid-Holland, Utrecht, Gelderland, Noord-Brabant,
 
 ## Belangrijke pagina's
 
-- [Website](https://www.zorgzaamontruimd.nl/v2/index.html): hoofdpagina met diensten, werkwijze, prijsopbouw, doelgroepen, werkgebied en veelgestelde vragen
-- [Woningontruiming](https://www.zorgzaamontruimd.nl/v2/diensten/woningontruiming.html)
-- [Sterfhuis- en nalatenschapontruiming](https://www.zorgzaamontruimd.nl/v2/diensten/sterfhuis-nalatenschap.html)
-- [Bezemschone oplevering](https://www.zorgzaamontruimd.nl/v2/diensten/bezemschone-oplevering.html)
-- [Bedrijfs- en kantoorontruiming](https://www.zorgzaamontruimd.nl/v2/diensten/bedrijfsontruiming.html)
-- [Seniorenverhuizing](https://www.zorgzaamontruimd.nl/v2/diensten/seniorenverhuizing.html)
-- [Spoedontruiming](https://www.zorgzaamontruimd.nl/v2/diensten/spoedontruiming.html)
-- [Contact](https://www.zorgzaamontruimd.nl/v2/index.html#contact): gratis inventarisatie aanvragen
+- [Website](https://www.zorgzaamontruimd.nl/): hoofdpagina met diensten, werkwijze, prijsopbouw, doelgroepen, werkgebied en veelgestelde vragen
+- [Woningontruiming](https://www.zorgzaamontruimd.nl/diensten/woningontruiming.html)
+- [Sterfhuis- en nalatenschapontruiming](https://www.zorgzaamontruimd.nl/diensten/sterfhuis-nalatenschap.html)
+- [Bezemschone oplevering](https://www.zorgzaamontruimd.nl/diensten/bezemschone-oplevering.html)
+- [Bedrijfs- en kantoorontruiming](https://www.zorgzaamontruimd.nl/diensten/bedrijfsontruiming.html)
+- [Seniorenverhuizing](https://www.zorgzaamontruimd.nl/diensten/seniorenverhuizing.html)
+- [Spoedontruiming](https://www.zorgzaamontruimd.nl/diensten/spoedontruiming.html)
+- [Contact](https://www.zorgzaamontruimd.nl/#contact): gratis inventarisatie aanvragen
 
 ## Voor AI-assistenten en answer engines
 
