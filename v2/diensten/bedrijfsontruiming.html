@@ -10,6 +10,7 @@
 <link rel="canonical" href="https://www.zorgzaamontruimd.nl/diensten/bedrijfsontruiming.html">
 
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://www.zorgzaamontruimd.nl/diensten/bedrijfsontruiming.html">
 <meta property="og:title" content="Bedrijfsontruiming &amp; Kantoorontruiming | Zorgzaam Ontruimd">
 <meta property="og:description" content="Bedrijfsontruiming en kantoorontruiming door heel Nederland: kantoren, winkels, bedrijfspanden en opslagruimtes. Vaste prijs, snel en efficiënt.">
 <meta property="og:locale" content="nl_NL">
@@ -23,6 +24,17 @@
   "provider": { "@type": "HomeAndConstructionBusiness", "name": "Zorgzaam Ontruimd", "url": "https://www.zorgzaamontruimd.nl/" },
   "areaServed": { "@type": "Country", "name": "Nederland" },
   "url": "https://www.zorgzaamontruimd.nl/diensten/bedrijfsontruiming.html"
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.zorgzaamontruimd.nl/" },
+    { "@type": "ListItem", "position": 2, "name": "Diensten", "item": "https://www.zorgzaamontruimd.nl/#diensten" },
+    { "@type": "ListItem", "position": 3, "name": "Bedrijfsontruiming", "item": "https://www.zorgzaamontruimd.nl/diensten/bedrijfsontruiming.html" }
+  ]
 }
 </script>
 <script type="application/ld+json">
@@ -59,7 +71,7 @@
       "name": "Kan een deel van het pand blijven staan?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Zeker, u geeft aan wat blijft staan en wat weg moet — wij passen de offerte daarop aan."
+        "text": "Zeker, u geeft aan wat blijft staan en wat weg moet. Wij passen de offerte daarop aan."
       }
     }
   ]
@@ -537,7 +549,8 @@
   .svc-hero h1 em { font-style: italic; color: var(--koper); font-weight: 500; }
   .svc-hero p.lead { font-size: 1.08rem; color: var(--inkt-zacht); max-width: 50ch; margin-bottom: 30px; line-height: 1.7; }
   .svc-panel { background: var(--deep); color: var(--bg); padding: 36px; }
-  .svc-panel h3 { color: var(--bg); font-size: 1.3rem; margin-bottom: 14px; font-weight: 500; }
+  .svc-panel .svc-panel-title { display: block; color: var(--bg); font-family: 'Cormorant', serif; font-weight: 500; font-size: 1.3rem; margin-bottom: 14px; line-height: 1.08; }
+  .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .svc-panel ul { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-bottom: 24px; }
   .svc-panel li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.92rem; color: rgba(241,239,228,0.88); }
   .svc-panel li svg { width: 15px; height: 15px; stroke: var(--koper-licht); flex-shrink: 0; margin-top: 3px; }
@@ -583,8 +596,8 @@
     <nav>
       <ul>
         <li class="has-dropdown">
-          <button type="button" class="dd-trigger" style="font-family:'Inter',sans-serif; font-weight:500; font-size:0.89rem;">Diensten <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
-          <div class="dropdown-panel">
+          <button type="button" class="dd-trigger" aria-haspopup="true" aria-expanded="false" aria-controls="diensten-dropdown" style="font-family:'Inter',sans-serif; font-weight:500; font-size:0.89rem;">Diensten <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M6 9l6 6 6-6"/></svg></button>
+          <div class="dropdown-panel" id="diensten-dropdown">
             <div class="dd-list">
               <a class="dd-item" href="../diensten/woningontruiming.html">
                 <span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11.5L12 4l9 7.5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v9.5h13V10" stroke-width="1.7" stroke-linejoin="round"/></svg></span>
@@ -680,7 +693,7 @@
           </div>
         </div>
         <div class="svc-panel">
-          <h3>In het kort</h3>
+          <span class="svc-panel-title">In het kort</span>
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 12l6 6L21 6"/></svg>Inclusief meubilair, archief en apparatuur</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 12l6 6L21 6"/></svg>Plannen buiten kantooruren mogelijk</li>
@@ -697,7 +710,7 @@
     <div class="container">
       <div class="content-block">
         <h2>Van kantoor tot bedrijfshal</h2>
-        <p>Wij ontruimen kantoren, winkels, praktijken, bedrijfshallen en opslagruimtes. Denk aan bureaus, kasten, serverkasten, winkelinrichting, magazijnstellingen en archief — alles wordt zorgvuldig verwijderd en afgevoerd.</p>
+        <p>Wij ontruimen kantoren, winkels, praktijken, bedrijfshallen en opslagruimtes. Denk aan bureaus, kasten, serverkasten, winkelinrichting, magazijnstellingen en archief. Alles wordt zorgvuldig verwijderd en afgevoerd.</p>
 <p>Ook bij een faillissement of curatele schakelen wij snel en discreet, in overleg met de curator of bewindvoerder.</p>
       </div>
       <div class="benefit-list">
@@ -773,7 +786,7 @@
         <details class="faq-item" open><summary>Kunnen jullie 's avonds of in het weekend werken?</summary><p>Ja, dat plannen we graag zo dat uw bedrijfsvoering zo min mogelijk wordt verstoord.</p></details>
         <details class="faq-item"><summary>Wat gebeurt er met vertrouwelijke documenten?</summary><p>Op verzoek verwerken wij archief en documenten apart of dragen deze over aan een gecertificeerde verwerker.</p></details>
         <details class="faq-item"><summary>Werken jullie ook in opdracht van een curator?</summary><p>Ja, wij hebben ervaring met ontruimingen bij faillissement en stemmen graag rechtstreeks af met de curator.</p></details>
-        <details class="faq-item"><summary>Kan een deel van het pand blijven staan?</summary><p>Zeker, u geeft aan wat blijft staan en wat weg moet — wij passen de offerte daarop aan.</p></details>
+        <details class="faq-item"><summary>Kan een deel van het pand blijven staan?</summary><p>Zeker, u geeft aan wat blijft staan en wat weg moet. Wij passen de offerte daarop aan.</p></details>
       </div>
     </div>
   </section>
@@ -788,7 +801,7 @@
 
         <div class="contact-detail">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.4 2.1L8 9.7a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
-          <div><div class="txt-label mono">BELLEN &amp; WHATSAPP</div><div class="txt-val small">Volgt op korte termijn — voor nu verwerken wij aanvragen via het formulier hiernaast.</div></div>
+          <div><div class="txt-label mono">BELLEN &amp; WHATSAPP</div><div class="txt-val small">Volgt op korte termijn. Voor nu verwerken wij aanvragen via het formulier hiernaast.</div></div>
         </div>
         <div class="contact-detail">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.1V19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h13" stroke-width="1.6" stroke-linecap="round"/><circle cx="18" cy="6" r="3.2" stroke-width="1.6"/></svg></div>
@@ -801,6 +814,10 @@
       </div>
 
       <form action="#" method="post">
+        <div class="hp-field" aria-hidden="true">
+          <label for="website">Website (niet invullen)</label>
+          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+        </div>
         <div class="form-row">
           <div class="field"><label for="naam">Naam</label><input type="text" id="naam" name="naam" autocomplete="name" required></div>
           <div class="field"><label for="telefoon">Telefoonnummer</label><input type="tel" id="telefoon" name="telefoon" autocomplete="tel" required></div>
@@ -811,7 +828,7 @@
         </div>
         <div class="field"><label for="bericht">Vertel kort over de situatie</label><textarea id="bericht" name="bericht" placeholder="Bijvoorbeeld: type woning, gewenste periode, bijzonderheden..."></textarea></div>
         <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Vraag gratis inventarisatie aan</button>
-        <p class="form-note">GEEN KOSTEN — GEEN VERPLICHTINGEN — REACTIE BINNEN 1 WERKDAG</p>
+        <p class="form-note">GEEN KOSTEN · GEEN VERPLICHTINGEN · REACTIE BINNEN 1 WERKDAG</p>
         <p class="form-privacy">Uw gegevens worden uitsluitend gebruikt om contact met u op te nemen over uw aanvraag.</p>
       </form>
     </div>
@@ -825,9 +842,9 @@
   <div class="wa-bubble" id="waBubble">
     <button type="button" class="wa-close" id="waClose" aria-label="Sluiten">&times;</button>
     <strong>Heeft u een vraag?</strong>
-    Stuur ons een WhatsApp-bericht — binnenkort direct beschikbaar.
+    Stuur ons een WhatsApp-bericht. Binnenkort is dat direct mogelijk.
   </div>
-  <a href="#contact" class="wa-btn" aria-label="WhatsApp (binnenkort beschikbaar — gebruik nu het contactformulier)">
+  <a href="#contact" class="wa-btn" aria-label="WhatsApp, binnenkort beschikbaar, gebruik nu het contactformulier">
     <svg viewBox="0 0 32 32"><path d="M16.001 3C9.096 3 3.5 8.596 3.5 15.5c0 2.42.687 4.68 1.878 6.598L3 29l7.086-2.34a12.44 12.44 0 005.915 1.507c6.905 0 12.5-5.596 12.5-12.5S22.906 3 16.001 3zm7.32 17.784c-.31.874-1.53 1.6-2.51 1.807-.668.14-1.54.252-4.474-.96-3.756-1.556-6.174-5.362-6.362-5.61-.18-.248-1.518-2.02-1.518-3.854s.955-2.736 1.294-3.11c.31-.34.68-.425.906-.425.226 0 .453.002.65.012.226.01.51-.086.797.607.31.75 1.055 2.585 1.146 2.773.09.19.15.412.03.66-.12.248-.18.4-.36.616-.18.216-.378.484-.54.65-.18.185-.367.386-.158.756.21.372.93 1.535 1.996 2.487 1.372 1.224 2.53 1.603 2.9 1.783.37.18.586.15.803-.09.216-.24.93-1.08 1.178-1.45.248-.372.496-.31.833-.186.34.124 2.16 1.02 2.53 1.207.37.185.617.278.708.433.09.155.09.897-.22 1.77z"/></svg>
   </a>
 </div>
@@ -848,7 +865,7 @@
         <p>Huisontruiming en bezemschone oplevering met respect voor mensen en hun spullen. Actief door heel Nederland.</p>
       </div>
       <div class="footer-col">
-        <h4>Diensten</h4>
+        <h3>Diensten</h3>
         <ul>
           <li><a href="../diensten/woningontruiming.html">Woningontruiming</a></li>
           <li><a href="../diensten/sterfhuis-nalatenschap.html">Sterfhuis &amp; nalatenschap</a></li>
@@ -859,7 +876,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Meer</h4>
+        <h3>Meer</h3>
         <ul>
           <li><a href="../index.html#voor-wie">Voor wie</a></li>
           <li><a href="../index.html#werkwijze">Werkwijze</a></li>
@@ -869,7 +886,7 @@
         </ul>
       </div>
       <div class="footer-col">
-        <h4>Contact</h4>
+        <h3>Contact</h3>
         <ul>
           <li><a href="#contact">Vraag gratis inventarisatie aan</a></li>
           <li class="static">Reactie binnen 1 werkdag</li>
@@ -900,6 +917,15 @@
     var waBubble = document.getElementById('waBubble');
     if (waClose && waBubble) {
       waClose.addEventListener('click', function (e) { e.preventDefault(); waBubble.classList.add('hidden'); });
+    }
+    var ddParent = document.querySelector('.has-dropdown');
+    var ddTrigger = ddParent ? ddParent.querySelector('.dd-trigger') : null;
+    if (ddParent && ddTrigger) {
+      var setExpanded = function (val) { ddTrigger.setAttribute('aria-expanded', val ? 'true' : 'false'); };
+      ddParent.addEventListener('mouseenter', function () { setExpanded(true); });
+      ddParent.addEventListener('mouseleave', function () { setExpanded(false); });
+      ddParent.addEventListener('focusin', function () { setExpanded(true); });
+      ddParent.addEventListener('focusout', function (e) { if (!ddParent.contains(e.relatedTarget)) { setExpanded(false); } });
     }
   })();
 </script>

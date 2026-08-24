@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Huisontruiming na overlijden | Gratis inventarisatie | Zorgzaam Ontruimd</title>
-<meta name="description" content="Huis ontruimen na overlijden? Gratis en vrijblijvende inventarisatie, vaste prijs vooraf, bezemschone oplevering. Wij nemen het rustig en respectvol uit handen — heel Nederland.">
+<meta name="description" content="Huis ontruimen na overlijden? Gratis inventarisatie en vaste prijs vooraf. Wij nemen het rustig en respectvol uit handen, door heel Nederland.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -72,6 +72,7 @@
   .btn-primary:hover { background: var(--deep-donker); }
   .form-note { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--inkt-zacht); margin-top: 14px; text-align: center; letter-spacing: 0.01em; }
   .privacy-note { font-size: 0.76rem; color: var(--inkt-zacht); margin-top: 10px; }
+  .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
   .werkwijze { background: var(--bg-warm); border-top: 1px solid var(--lijn); border-bottom: 1px solid var(--lijn); padding: 60px 0; }
   .section-head { max-width: 600px; margin-bottom: 40px; }
@@ -147,9 +148,9 @@
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-copy">
-        <span class="eyebrow">Ontruiming na overlijden — heel Nederland</span>
+        <span class="eyebrow">Ontruiming na overlijden, heel Nederland</span>
         <h1>Het huis van een dierbare, <em>rustig en zorgvuldig</em> leeggehaald.</h1>
-        <p class="lead">U heeft al genoeg aan uw hoofd. Wij nemen de ontruiming van begin tot eind uit handen — met aandacht voor persoonlijke spullen en een vaste prijs die u vooraf weet.</p>
+        <p class="lead">U heeft al genoeg aan uw hoofd. Wij nemen de ontruiming van begin tot eind uit handen, met aandacht voor persoonlijke spullen en een vaste prijs die u vooraf weet.</p>
 
         <div class="vak-row">
           <span class="vak-label">gratis inventarisatie</span>
@@ -167,6 +168,10 @@
         <p class="sub">Twee stappen, klaar in een halve minuut.</p>
 
         <form action="#" method="post">
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Website (niet invullen)</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
           <div class="field">
             <label>Waar gaat het om?</label>
             <div class="radio-group">
@@ -305,11 +310,11 @@
 </main>
 
 <footer>
-  <div class="container">ZORGZAAM ONTRUIMD — ACTIEF IN HEEL NEDERLAND</div>
+  <div class="container">ZORGZAAM ONTRUIMD · ACTIEF IN HEEL NEDERLAND</div>
 </footer>
 
 <div class="wa-float">
-  <a href="#offerte-form" class="wa-btn" aria-label="WhatsApp (binnenkort beschikbaar — gebruik nu het formulier)">
+  <a href="#offerte-form" class="wa-btn" aria-label="WhatsApp, binnenkort beschikbaar, gebruik nu het formulier">
     <svg viewBox="0 0 32 32"><path d="M16.001 3C9.096 3 3.5 8.596 3.5 15.5c0 2.42.687 4.68 1.878 6.598L3 29l7.086-2.34a12.44 12.44 0 005.915 1.507c6.905 0 12.5-5.596 12.5-12.5S22.906 3 16.001 3zm7.32 17.784c-.31.874-1.53 1.6-2.51 1.807-.668.14-1.54.252-4.474-.96-3.756-1.556-6.174-5.362-6.362-5.61-.18-.248-1.518-2.02-1.518-3.854s.955-2.736 1.294-3.11c.31-.34.68-.425.906-.425.226 0 .453.002.65.012.226.01.51-.086.797.607.31.75 1.055 2.585 1.146 2.773.09.19.15.412.03.66-.12.248-.18.4-.36.616-.18.216-.378.484-.54.65-.18.185-.367.386-.158.756.21.372.93 1.535 1.996 2.487 1.372 1.224 2.53 1.603 2.9 1.783.37.18.586.15.803-.09.216-.24.93-1.08 1.178-1.45.248-.372.496-.31.833-.186.34.124 2.16 1.02 2.53 1.207.37.185.617.278.708.433.09.155.09.897-.22 1.77z"/></svg>
   </a>
 </div>
