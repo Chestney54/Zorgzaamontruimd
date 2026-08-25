@@ -1,0 +1,40 @@
+name: Fetch Pexels images
+
+on:
+  workflow_dispatch: {}
+
+jobs:
+  fetch-images:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Installeer dependencies
+        run: pip install requests Pillow
+
+      - name: Haal en verwerk afbeeldingen op
+        env:
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+        run: python scripts/fetch_pexels_images.py
+
+      - name: Open pull request met nieuwe afbeeldingen
+        uses: peter-evans/create-pull-request@v6
+        with:
+          commit-message: "Automatisch opgehaalde Pexels-afbeeldingen"
+          title: "Nieuwe sitefoto's via Pexels"
+          body: |
+            Automatisch gegenereerd door de "Fetch Pexels images"-workflow.
+
+            Bevat 8 nieuwe afbeeldingen in `v2/images/`, opgehaald via de Pexels API
+            op basis van vaste zoektermen (zie `scripts/fetch_pexels_images.py`).
+
+            **Controleer de foto's voordat je deze PR merget.** De HTML-integratie
+            (img-tags, alt-teksten, lazy loading) volgt in een aparte stap zodra de
+            foto's zijn goedgekeurd.
+          branch: automated/pexels-images
+          add-paths: v2/images/**
+          delete-branch: true
