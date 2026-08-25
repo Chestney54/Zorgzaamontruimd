@@ -83,6 +83,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="../images/dienst-bedrijf.jpg" fetchpriority="high">
 
 <style>
 
@@ -538,24 +539,30 @@
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
 
 
-  .svc-hero { padding: 44px 0 70px; border-bottom: 1px solid var(--lijn); background: var(--bg-warm); }
-  .breadcrumb { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--inkt-zacht); margin-bottom: 24px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
-  .breadcrumb a { color: var(--inkt-zacht); }
-  .breadcrumb a:hover { color: var(--deep); }
-  .svc-hero-layout { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: center; }
-  .svc-badge { width: 84px; height: 84px; background: var(--kaart); border: 1px solid var(--lijn-sterk); display: flex; align-items: center; justify-content: center; margin-bottom: 26px; }
-  .svc-badge svg { width: 40px; height: 40px; stroke: var(--koper); }
-  .svc-hero h1 { font-size: clamp(2.2rem, 4vw, 3.3rem); max-width: 16ch; margin-bottom: 22px; }
-  .svc-hero h1 em { font-style: italic; color: var(--koper); font-weight: 600; }
-  .svc-hero p.lead { font-size: 1.08rem; color: var(--inkt-zacht); max-width: 50ch; margin-bottom: 30px; line-height: 1.7; }
-  .svc-panel { background: var(--deep); color: var(--bg); padding: 36px; }
+  .svc-hero { position: relative; overflow: hidden; min-height: 620px; display: flex; align-items: center; }
+  .svc-hero-bg { position: absolute; inset: -6% -6%; z-index: 0; will-change: transform; }
+  .svc-hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .svc-hero-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(22,41,47,0.42) 0%, rgba(20,36,41,0.66) 45%, rgba(16,28,32,0.93) 100%); }
+  .svc-hero-content { position: relative; z-index: 1; padding: 148px 0 64px; width: 100%; }
+  .breadcrumb { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: rgba(241,239,228,0.7); margin-bottom: 24px; display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .breadcrumb a { color: rgba(241,239,228,0.7); }
+  .breadcrumb a:hover { color: var(--bg); }
+  .svc-hero-layout { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 48px; align-items: start; }
+  .svc-hero h1 { font-size: clamp(2.2rem, 4vw, 3.3rem); max-width: 16ch; margin-bottom: 22px; color: var(--bg); }
+  .svc-hero h1 em { font-style: italic; color: var(--koper-licht); font-weight: 600; }
+  .svc-hero p.lead { font-size: 1.08rem; color: rgba(241,239,228,0.88); max-width: 50ch; margin-bottom: 30px; line-height: 1.7; }
+  .svc-hero .btn-outline { border-color: rgba(241,239,228,0.6); color: var(--bg); }
+  .svc-hero .btn-outline:hover { background: var(--bg); color: var(--inkt); }
+  .svc-panel { background: rgba(22,41,47,0.9); backdrop-filter: blur(8px); color: var(--bg); padding: 36px; border: 1px solid rgba(241,239,228,0.14); }
   .svc-panel .svc-panel-title { display: block; color: var(--bg); font-family: 'Montserrat', sans-serif; font-weight: 600; font-size: 1.1rem; margin-bottom: 14px; line-height: 1.15; }
   .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
   .svc-panel ul { list-style: none; display: flex; flex-direction: column; gap: 13px; margin-bottom: 24px; }
   .svc-panel li { display: flex; align-items: flex-start; gap: 10px; font-size: 0.92rem; color: rgba(241,239,228,0.88); }
   .svc-panel li svg { width: 15px; height: 15px; stroke: var(--koper-licht); flex-shrink: 0; margin-top: 3px; }
   .svc-panel .btn { width: 100%; }
+  .magnetic { transition: transform 0.15s ease; }
   @media (max-width: 900px) { .svc-hero-layout { grid-template-columns: 1fr; } }
+  @media (max-width: 720px) { .svc-hero { min-height: 520px; } .svc-hero-content { padding: 128px 0 56px; } }
 
   .content-block { max-width: 760px; }
   .content-block p { color: var(--inkt-zacht); font-size: 1.02rem; margin-bottom: 18px; line-height: 1.75; }
@@ -678,19 +685,18 @@
 
   <!-- SERVICE HERO -->
   <section class="svc-hero">
-    <div class="container">
+    <div class="svc-hero-bg" data-parallax><img src="../images/dienst-bedrijf.jpg" alt="Lege kantoor- of bedrijfsruimte tijdens een bedrijfsontruiming" loading="eager" fetchpriority="high" width="1200" height="675"></div>
+    <div class="container svc-hero-content">
       <div class="breadcrumb">
         <a href="../index.html">Home</a><span>/</span><a href="../index.html#diensten">Diensten</a><span>/</span><span>Bedrijfsontruiming</span>
       </div>
       <div class="svc-hero-layout">
         <div>
-          <img src="../images/dienst-bedrijf.jpg" alt="Lege kantoor- of bedrijfsruimte tijdens een bedrijfsontruiming" loading="eager" width="1200" height="675" style="width:100%;aspect-ratio:16/9;object-fit:cover;margin-bottom:28px;">
-          <div class="svc-badge"><svg viewBox="0 0 24 24" fill="none"><path d="M4 21V9l4-3 4 3v12M12 21V6l4-3 4 3v15" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
           <h1>Uw pand leeg, <em>snel en zonder gedoe.</em></h1>
           <p class="lead">Bij verhuizing, huurbeëindiging of faillissement moet een bedrijfspand vaak binnen een strakke termijn leeg. Wij ontruimen kantoren, winkels en bedrijfspanden met minimale verstoring van uw bedrijfsvoering.</p>
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Gratis inventarisatie aanvragen</a>
-            <a href="../index.html#werkwijze" class="btn btn-outline">Onze werkwijze</a>
+            <a href="#contact" class="btn btn-copper magnetic">Gratis inventarisatie aanvragen</a>
+            <a href="../index.html#werkwijze" class="btn btn-outline magnetic">Onze werkwijze</a>
           </div>
         </div>
         <div class="svc-panel">
@@ -698,6 +704,7 @@
           <ul>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 12l6 6L21 6"/></svg>Inclusief meubilair, archief en apparatuur</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 12l6 6L21 6"/></svg>Plannen buiten kantooruren mogelijk</li>
+            <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 12l6 6L21 6"/></svg>Wij kunnen vaak binnen 24 uur schakelen</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 12l6 6L21 6"/></svg>Ervaring met faillissement en curatele</li>
             <li><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 12l6 6L21 6"/></svg>Eén vaste prijs voor het hele pand</li>
           </ul>
@@ -927,6 +934,33 @@
       ddParent.addEventListener('mouseleave', function () { setExpanded(false); });
       ddParent.addEventListener('focusin', function () { setExpanded(true); });
       ddParent.addEventListener('focusout', function (e) { if (!ddParent.contains(e.relatedTarget)) { setExpanded(false); } });
+    }
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    var parallaxEls = document.querySelectorAll('[data-parallax]');
+    if (parallaxEls.length && !reduceMotion) {
+      var onScrollParallax = function () {
+        parallaxEls.forEach(function (el) {
+          var rect = el.parentElement.getBoundingClientRect();
+          var offset = rect.top * 0.12;
+          el.style.transform = 'translateY(' + offset.toFixed(1) + 'px)';
+        });
+      };
+      window.addEventListener('scroll', function () { requestAnimationFrame(onScrollParallax); }, { passive: true });
+      onScrollParallax();
+    }
+
+    if (window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduceMotion) {
+      document.querySelectorAll('.magnetic').forEach(function (el) {
+        el.addEventListener('mousemove', function (e) {
+          var rect = el.getBoundingClientRect();
+          var x = e.clientX - rect.left - rect.width / 2;
+          var y = e.clientY - rect.top - rect.height / 2;
+          el.style.transform = 'translate(' + (x * 0.18).toFixed(1) + 'px, ' + (y * 0.28).toFixed(1) + 'px)';
+        });
+        el.addEventListener('mouseleave', function () { el.style.transform = ''; });
+      });
     }
   })();
 </script>
