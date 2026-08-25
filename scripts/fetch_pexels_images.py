@@ -66,7 +66,7 @@ IMAGES = [
     },
     {
         "filename": "dienst-senioren",
-        "query": "senior citizen packing books cardboard box living room",
+        "query": "senior wrinkled hands packing box family help home",
         "orientation": "portrait",
         "width": 1000,
         "height": 1250,
