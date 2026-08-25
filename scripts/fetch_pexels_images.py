@@ -66,7 +66,7 @@ IMAGES = [
     },
     {
         "filename": "dienst-senioren",
-        "query": "senior couple packing boxes moving house together",
+        "query": "elderly woman grey hair downsizing packing boxes family help",
         "orientation": "portrait",
         "width": 1000,
         "height": 1250,
