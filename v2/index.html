@@ -3,16 +3,17 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Zorgzaam Ontruimd | Huisontruiming &amp; Bezemschone Oplevering in Heel Nederland</title>
-<meta name="description" content="Huisontruiming, sterfhuisontruiming en bezemschone oplevering door heel Nederland. Vaste prijs vooraf, gratis inventarisatie. Vraag nu een offerte aan.">
-<meta name="keywords" content="huisontruiming, woningontruiming, ontruimingsbedrijf, bezemschone oplevering, sterfhuis ontruimen, nalatenschap ontruimen, bedrijfsontruiming, seniorenverhuizing, vervuilde woning ontruimen, inboedel opruimen, spoedontruiming, ontruiming heel Nederland">
+<script>document.documentElement.classList.add('js');</script>
+<title>Zorgzaam Ontruimd | Woning- &amp; Bedrijfsontruiming in Heel Nederland</title>
+<meta name="description" content="Woningontruiming, bedrijfsontruiming, seniorenverhuizing en bezemschone oplevering door heel Nederland. Vaste prijs vooraf, gratis inventarisatie.">
+<meta name="keywords" content="huisontruiming, woningontruiming, ontruimingsbedrijf, bezemschone oplevering, verhuizing ontruiming, sterfhuis ontruimen, nalatenschap ontruimen, bedrijfsontruiming, kantoorontruiming, seniorenverhuizing, inboedel opruimen, spoedontruiming, ontruiming heel Nederland">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://www.zorgzaamontruimd.nl/">
 
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://www.zorgzaamontruimd.nl/">
-<meta property="og:title" content="Zorgzaam Ontruimd | Huisontruiming &amp; Bezemschone Oplevering">
-<meta property="og:description" content="Ontruiming en bezemschone oplevering met zorg en aandacht. Vaste prijs vooraf en een gratis inventarisatie, door heel Nederland.">
+<meta property="og:title" content="Zorgzaam Ontruimd | Woning- &amp; Bedrijfsontruiming">
+<meta property="og:description" content="Woning- en bedrijfsontruiming, seniorenverhuizing en bezemschone oplevering met zorg en aandacht. Vaste prijs vooraf, gratis inventarisatie, door heel Nederland.">
 <meta property="og:locale" content="nl_NL">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -21,7 +22,7 @@
   "@context": "https://schema.org",
   "@type": "HomeAndConstructionBusiness",
   "name": "Zorgzaam Ontruimd",
-  "description": "Huisontruiming, sterfhuis- en nalatenschapontruiming, bedrijfsontruiming en bezemschone oplevering met respect en aandacht, actief in heel Nederland.",
+  "description": "Woningontruiming bij verhuizing, verkoop, overlijden of seniorenverhuizing, bedrijfsontruiming en bezemschone oplevering met respect en aandacht, actief in heel Nederland.",
   "areaServed": { "@type": "Country", "name": "Nederland" },
   "priceRange": "Gratis inventarisatie",
   "url": "https://www.zorgzaamontruimd.nl/",
@@ -35,7 +36,6 @@
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Bedrijfs- en kantoorontruiming", "url": "https://www.zorgzaamontruimd.nl/diensten/bedrijfsontruiming.html" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Seniorenverhuizing", "url": "https://www.zorgzaamontruimd.nl/diensten/seniorenverhuizing.html" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Spoedontruiming", "url": "https://www.zorgzaamontruimd.nl/diensten/spoedontruiming.html" } },
-      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Ontruiming van ernstig vervuilde woningen" } },
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Inboedel opruimen en opkoop" } }
     ]
   }
@@ -67,6 +67,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="images/hero-woonkamer.jpg" fetchpriority="high">
 
 <style>
   :root {
@@ -309,17 +310,22 @@
     position: absolute; inset: 0;
     background: var(--deep);
     clip-path: path('M0,420 C0,180 90,0 260,0 C430,0 520,180 520,420 L520,520 L0,520 Z');
+    overflow: hidden;
   }
-  .hero-graphic svg.dotgrid { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0.5; }
-  .hero-graphic .badge-ring {
-    position: relative; z-index: 2;
-    width: 62%; aspect-ratio: 1;
+  .hero-graphic .arch-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-graphic .arch-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(195deg, rgba(31,58,66,0.28), rgba(22,41,47,0.82));
+  }
+  .hero-graphic .badge-seal {
+    position: absolute; z-index: 2; bottom: 8%; left: 8%;
+    width: 76px; height: 76px;
     border-radius: 50%;
     background: var(--kaart);
     display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 24px 60px rgba(22,41,47,0.35);
+    box-shadow: 0 16px 36px rgba(22,41,47,0.35);
   }
-  .hero-graphic .badge-ring svg { width: 52%; height: 52%; }
+  .hero-graphic .badge-seal svg { width: 52%; height: 52%; }
   .hero-graphic .float-chip {
     position: absolute;
     background: var(--kaart);
@@ -348,10 +354,20 @@
 
   /* ===== DIENSTEN ===== */
   .diensten { background: var(--bg-warm); border-top: 1px solid var(--lijn); border-bottom: 1px solid var(--lijn); }
-  .diensten-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--lijn); border: 1px solid var(--lijn); }
-  @media (max-width: 780px) { .diensten-grid { grid-template-columns: 1fr; } }
-  .dienst-card { padding: 32px 28px; background: var(--kaart); transition: background 0.2s ease; display: flex; flex-direction: column; }
-  .dienst-card:hover { background: var(--bg); }
+
+  .dienst-tabs { display: inline-flex; gap: 4px; background: var(--kaart); border: 1px solid var(--lijn-sterk); padding: 4px; margin-bottom: 32px; }
+  .dienst-tab { font-family: 'Inter', sans-serif; font-weight: 500; font-size: 0.9rem; padding: 10px 22px; background: none; border: none; cursor: pointer; color: var(--inkt-zacht); transition: background 0.2s ease, color 0.2s ease; }
+  .dienst-tab:hover:not(.active) { color: var(--inkt); }
+  .dienst-tab.active { background: var(--deep); color: var(--bg); }
+  @media (max-width: 480px) { .dienst-tabs { display: flex; width: 100%; } .dienst-tab { flex: 1; padding: 10px 8px; font-size: 0.82rem; } }
+
+  .diensten-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
+  .dienst-card { padding: 32px 28px; background: var(--kaart); border: 1px solid var(--lijn); transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: flex; flex-direction: column; }
+  .dienst-card:hover { background: var(--bg); transform: translateY(-4px); box-shadow: 0 16px 32px rgba(28,43,46,0.12); }
+  .js .diensten-grid[data-active] .dienst-card { display: none; }
+  .js .diensten-grid[data-active="particulier"] .dienst-card[data-cat~="particulier"] { display: flex; }
+  .js .diensten-grid[data-active="zakelijk"] .dienst-card[data-cat~="zakelijk"] { display: flex; }
+  .js .diensten-grid[data-active="aanvullend"] .dienst-card[data-cat~="aanvullend"] { display: flex; }
   .dienst-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
   .dienst-ic { width: 30px; height: 30px; }
   .dienst-ic svg { width: 100%; height: 100%; stroke: var(--deep); }
@@ -519,7 +535,9 @@
     .mobile-cta-bar { display: flex; }
     body { padding-bottom: 78px; }
   }
-  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } }
+  .reveal { opacity: 0; transform: translateY(16px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.in-view { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } html { scroll-behavior: auto; } .reveal { opacity: 1 !important; transform: none !important; } }
 </style>
 </head>
 <body>
@@ -623,9 +641,9 @@
     <div class="container">
       <div class="hero-layout">
         <div>
-          <span class="eyebrow">Ontruiming en oplevering in heel Nederland</span>
-          <h1>Wat achterblijft, <em>verdient rust.</em></h1>
-          <p class="lead">Een huis ontruimen is nooit zomaar een klus. Het is vaak het laatste hoofdstuk van een plek. Wij nemen het over met stilte, precisie en respect, van eerste rondgang tot bezemschone oplevering, tegen één vaste prijs die u vooraf kent.</p>
+          <span class="eyebrow">Woning- &amp; bedrijfsontruiming in heel Nederland</span>
+          <h1>Ruimte maken, <em>zonder gedoe.</em></h1>
+          <p class="lead">Of het nu gaat om een verhuizing, verkoop, seniorenverhuizing, een overlijden of het leegruimen van een bedrijfspand: wij ontruimen woningen, kamers, zolders, garages en bedrijfsruimtes met rust, precisie en respect, van eerste rondgang tot bezemschone oplevering, tegen één vaste prijs die u vooraf kent.</p>
 
           <div class="vak-row">
             <span class="vak-label">gratis inventarisatie</span>
@@ -635,8 +653,8 @@
           </div>
 
           <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Gratis inventarisatie aanvragen</a>
-            <a href="#werkwijze" class="btn btn-outline">Onze werkwijze</a>
+            <a href="#contact" class="btn btn-primary">Gratis offerte aanvragen</a>
+            <a href="#diensten" class="btn btn-outline">Bekijk onze diensten</a>
           </div>
 
           <div class="hero-divider"></div>
@@ -648,13 +666,11 @@
           </div>
         </div>
 
-        <div class="hero-graphic" aria-hidden="true">
-          <div class="arch-bg"></div>
-          <svg class="dotgrid" viewBox="0 0 520 520">
-            <defs><pattern id="dots" width="26" height="26" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r="1.6" fill="rgba(241,239,228,0.18)"/></pattern></defs>
-            <rect width="520" height="420" fill="url(#dots)"/>
-          </svg>
-          <div class="badge-ring">
+        <div class="hero-graphic">
+          <div class="arch-bg">
+            <img src="images/hero-woonkamer.jpg" alt="Rustig ingepakte verhuisdozen in een lichte woonkamer tijdens een woningontruiming" loading="eager" fetchpriority="high" width="1000" height="1250">
+          </div>
+          <div class="badge-seal" aria-hidden="true">
             <svg viewBox="0 0 44 44" fill="none">
               <path d="M22 2.8L39.5 12.4V31.6L22 41.2L4.5 31.6V12.4L22 2.8Z" stroke="#1F3A42" stroke-width="1.1" stroke-linejoin="round"/>
               <path d="M13.5 24.5L22 15.2L30.5 24.5" stroke="#1F3A42" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
@@ -674,21 +690,28 @@
     <div class="container">
       <div class="section-head">
         <h2>Wat wij voor u kunnen doen</h2>
-        <p>Van een enkele kamer tot een volledig bedrijfspand: wij passen ons aan op wat nodig is.</p>
+        <p>Van een enkele kamer tot een volledig bedrijfspand: wij verzorgen particuliere en zakelijke ontruimingen door heel Nederland.</p>
       </div>
-      <div class="diensten-grid">
 
-        <a class="dienst-card" href="diensten/woningontruiming.html">
+      <div class="dienst-tabs" role="tablist" aria-label="Kies particulier of zakelijk">
+        <button type="button" class="dienst-tab active" role="tab" aria-selected="true" aria-controls="diensten-grid" data-cat="particulier">Particulier</button>
+        <button type="button" class="dienst-tab" role="tab" aria-selected="false" aria-controls="diensten-grid" data-cat="zakelijk">Zakelijk</button>
+        <button type="button" class="dienst-tab" role="tab" aria-selected="false" aria-controls="diensten-grid" data-cat="aanvullend">Aanvullend</button>
+      </div>
+
+      <div class="diensten-grid" id="diensten-grid" data-active="particulier">
+
+        <a class="dienst-card" data-cat="particulier" href="diensten/woningontruiming.html">
           <div class="dienst-top">
             <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11.5L12 4l9 7.5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v9.5h13V10" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
             <span class="dienst-tag">Particulier</span>
           </div>
           <h3>Woningontruiming</h3>
-          <p>Complete ontruiming van huis of appartement, bijvoorbeeld bij verhuizing, verkoop of na een overlijden. Wij nemen de tijd die nodig is.</p>
+          <p>Complete ontruiming van huis, appartement, kamer, zolder of garage, bijvoorbeeld bij verhuizing, emigratie, verkoop of na een overlijden. Wij nemen de tijd die nodig is.</p>
           <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <a class="dienst-card" href="diensten/sterfhuis-nalatenschap.html">
+        <a class="dienst-card" data-cat="particulier" href="diensten/sterfhuis-nalatenschap.html">
           <div class="dienst-top">
             <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7.5-4.8-7.5-10.5A5.5 5.5 0 0112 6.2a5.5 5.5 0 017.5 4.3C19.5 16.2 12 21 12 21z" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
             <span class="dienst-tag">Nabestaanden</span>
@@ -698,27 +721,7 @@
           <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <a class="dienst-card" href="diensten/bezemschone-oplevering.html">
-          <div class="dienst-top">
-            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20h16M6 20V9l6-5 6 5v11" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
-            <span class="dienst-tag">Oplevering</span>
-          </div>
-          <h3>Bezemschone oplevering</h3>
-          <p>Wij zorgen dat de woning schoon en leeg wordt opgeleverd aan verhuurder, makelaar of nieuwe bewoner, klaar voor de sleuteloverdracht.</p>
-          <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-
-        <a class="dienst-card" href="diensten/bedrijfsontruiming.html">
-          <div class="dienst-top">
-            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 21V9l4-3 4 3v12M12 21V6l4-3 4 3v15" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
-            <span class="dienst-tag">Zakelijk</span>
-          </div>
-          <h3>Bedrijfs- &amp; kantoorontruiming</h3>
-          <p>Ontruiming van kantoren, winkels, bedrijfspanden en opslagruimtes bij verhuizing, faillissement of huurbeëindiging, inclusief meubilair en archief.</p>
-          <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
-
-        <a class="dienst-card" href="diensten/seniorenverhuizing.html">
+        <a class="dienst-card" data-cat="particulier" href="diensten/seniorenverhuizing.html">
           <div class="dienst-top">
             <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16M15 6l6 6-6 6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <span class="dienst-tag">Senioren</span>
@@ -728,16 +731,37 @@
           <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <div class="dienst-card">
+        <a class="dienst-card" data-cat="particulier zakelijk" href="diensten/spoedontruiming.html">
           <div class="dienst-top">
-            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 4l16 16M4 20L20 4" stroke-width="1.5" stroke-linecap="round"/><circle cx="12" cy="12" r="9.5" stroke-width="1.6"/></svg></div>
-            <span class="dienst-tag">Specialistisch</span>
+            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
+            <span class="dienst-tag">Spoed</span>
           </div>
-          <h3>Ernstig vervuilde woning</h3>
-          <p>Discrete en grondige aanpak van sterk vervuilde of volgestouwde woningen, inclusief verwijdering van vloerbedekking en grofvuil.</p>
-        </div>
+          <h3>Spoedontruiming</h3>
+          <p>Korte deadline door verhuurder of makelaar? Wij schakelen snel, ook binnen enkele dagen, zonder in te leveren op zorgvuldigheid. Inzetbaar bij zowel particuliere als zakelijke ontruimingen.</p>
+          <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
 
-        <div class="dienst-card">
+        <a class="dienst-card" data-cat="zakelijk" href="diensten/bedrijfsontruiming.html">
+          <div class="dienst-top">
+            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 21V9l4-3 4 3v12M12 21V6l4-3 4 3v15" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+            <span class="dienst-tag">Zakelijk</span>
+          </div>
+          <h3>Bedrijfs- &amp; kantoorontruiming</h3>
+          <p>Ontruiming van kantoren, winkels, bedrijfspanden en opslagruimtes bij verhuizing, faillissement of huurbeëindiging, inclusief meubilair en archief.</p>
+          <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <a class="dienst-card" data-cat="aanvullend" href="diensten/bezemschone-oplevering.html">
+          <div class="dienst-top">
+            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20h16M6 20V9l6-5 6 5v11" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
+            <span class="dienst-tag">Oplevering</span>
+          </div>
+          <h3>Bezemschone oplevering</h3>
+          <p>Wij zorgen dat de woning schoon en leeg wordt opgeleverd aan verhuurder, makelaar of nieuwe bewoner, klaar voor de sleuteloverdracht. Ook los van een volledige ontruiming.</p>
+          <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+
+        <div class="dienst-card" data-cat="aanvullend">
           <div class="dienst-top">
             <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8l9-5 9 5-9 5-9-5z" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 8v8l9 5 9-5V8" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
             <span class="dienst-tag">Waardebepaling</span>
@@ -746,7 +770,7 @@
           <p>Wij sorteren spullen op wens: bewaren, doneren, verkopen of afvoeren. Waardevolle items kunnen wij opkopen, wat in mindering komt op uw offerte.</p>
         </div>
 
-        <div class="dienst-card">
+        <div class="dienst-card" data-cat="aanvullend">
           <div class="dienst-top">
             <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M17 2.1l4 2.3-4 2.3M3 11a8.1 8.1 0 0014.9 4.4M7 21.9l-4-2.3 4-2.3M21 13a8.1 8.1 0 00-14.9-4.4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
             <span class="dienst-tag">Duurzaam</span>
@@ -754,16 +778,6 @@
           <h3>Afvoer &amp; een tweede leven</h3>
           <p>Verantwoorde afvoer van meubels en huisraad. Bruikbare spullen krijgen waar mogelijk een tweede leven via kringloop of een goed doel.</p>
         </div>
-
-        <a class="dienst-card" href="diensten/spoedontruiming.html">
-          <div class="dienst-top">
-            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
-            <span class="dienst-tag">Spoed</span>
-          </div>
-          <h3>Spoedontruiming</h3>
-          <p>Korte deadline door verhuurder of makelaar? Wij schakelen snel, ook binnen enkele dagen, zonder in te leveren op zorgvuldigheid.</p>
-          <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-        </a>
 
       </div>
 
@@ -961,6 +975,8 @@
         <h2>Laten we rustig kijken wat er nodig is.</h2>
         <p class="lead">Vul het formulier in en wij nemen binnen 1 werkdag contact met u op om een gratis inventarisatie in te plannen, op een moment dat u uitkomt.</p>
 
+        <img src="images/contact-inventarisatie.jpg" alt="Notities maken over een geplande inventarisatie voor een ontruiming, met een kop koffie naast een laptop" loading="lazy" width="1000" height="750" style="width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:28px;">
+
         <div class="contact-detail">
           <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.4 2.1L8 9.7a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
           <div><div class="txt-label mono">BELLEN &amp; WHATSAPP</div><div class="txt-val small">Volgt op korte termijn. Voor nu verwerken wij aanvragen via het formulier hiernaast.</div></div>
@@ -997,7 +1013,6 @@
             <option value="bezemschoon">Bezemschone oplevering</option>
             <option value="bedrijf">Bedrijfs- &amp; kantoorontruiming</option>
             <option value="senioren">Seniorenverhuizing</option>
-            <option value="vervuild">Ernstig vervuilde woning</option>
             <option value="spoed">Spoedontruiming</option>
             <option value="anders">Anders / weet ik nog niet</option>
           </select>
@@ -1102,6 +1117,32 @@
       ddParent.addEventListener('mouseleave', function () { setExpanded(false); });
       ddParent.addEventListener('focusin', function () { setExpanded(true); });
       ddParent.addEventListener('focusout', function (e) { if (!ddParent.contains(e.relatedTarget)) { setExpanded(false); } });
+    }
+
+    var dienstTabs = document.querySelectorAll('.dienst-tab');
+    var dienstGrid = document.getElementById('diensten-grid');
+    if (dienstTabs.length && dienstGrid) {
+      dienstTabs.forEach(function (tab) {
+        tab.addEventListener('click', function () {
+          dienstTabs.forEach(function (t) { t.classList.remove('active'); t.setAttribute('aria-selected', 'false'); });
+          tab.classList.add('active');
+          tab.setAttribute('aria-selected', 'true');
+          dienstGrid.setAttribute('data-active', tab.getAttribute('data-cat'));
+        });
+      });
+    }
+
+    var revealEls = document.querySelectorAll('.section-head, .dienst-card, .usp-card, .doelgroep-card, .stap, .aanpak-block, .factor');
+    revealEls.forEach(function (el) { el.classList.add('reveal'); });
+    if ('IntersectionObserver' in window) {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { entry.target.classList.add('in-view'); io.unobserve(entry.target); }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      revealEls.forEach(function (el) { io.observe(el); });
+    } else {
+      revealEls.forEach(function (el) { el.classList.add('in-view'); });
     }
   })();
 </script>
