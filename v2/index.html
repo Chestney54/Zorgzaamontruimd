@@ -66,7 +66,7 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Montserrat:ital,wght@0,500;0,600;0,700;1,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <link rel="preload" as="image" href="images/hero-woonkamer.jpg" fetchpriority="high">
 
 <style>
@@ -97,11 +97,11 @@
   }
 
   h1, h2, h3, .display {
-    font-family: 'Cormorant', serif;
-    font-weight: 500;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
     color: var(--inkt);
-    line-height: 1.08;
-    letter-spacing: -0.005em;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
     text-wrap: balance;
   }
 
@@ -289,7 +289,7 @@
     max-width: 16ch;
     color: var(--bg);
   }
-  .hero h1 em { font-style: italic; color: var(--koper-licht); font-weight: 500; }
+  .hero h1 em { font-style: italic; color: var(--koper-licht); font-weight: 600; }
 
   .hero p.lead {
     font-size: 1.15rem;
@@ -302,7 +302,7 @@
   .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
   .hero .btn-outline { border-color: rgba(241,239,228,0.6); color: var(--bg); }
   .hero .btn-outline:hover { background: var(--bg); color: var(--inkt); }
-  .vak-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .vak-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
   .hero .vak-label { background: rgba(251,250,246,0.1); border-color: rgba(241,239,228,0.35); color: var(--bg); backdrop-filter: blur(6px); }
 
   .hero-scroll-cue {
@@ -509,7 +509,7 @@
   /* ===== FAQ ===== */
   .faq-list { max-width: 800px; margin: 0 auto; }
   details.faq-item { border-bottom: 1px solid var(--lijn); padding: 24px 0; }
-  details.faq-item summary { cursor: pointer; font-family: 'Cormorant', serif; font-size: 1.22rem; font-weight: 500; display: flex; justify-content: space-between; align-items: center; gap: 20px; list-style: none; }
+  details.faq-item summary { cursor: pointer; font-family: 'Montserrat', sans-serif; font-size: 1.05rem; font-weight: 600; display: flex; justify-content: space-between; align-items: center; gap: 20px; list-style: none; }
   details.faq-item summary::-webkit-details-marker { display: none; }
   details.faq-item summary::after { content: "+"; font-size: 1.5rem; color: var(--koper); font-weight: 400; flex-shrink: 0; }
   details.faq-item[open] summary::after { content: "\2212"; }
@@ -646,7 +646,7 @@
             </div>
             <div class="dd-side">
               <div>
-                <strong style="display:block; font-family:'Cormorant',serif; font-size:1.2rem; font-weight:500; margin-bottom:8px;">Niet zeker wat u nodig heeft?</strong>
+                <strong style="display:block; font-family:'Montserrat',sans-serif; font-size:1.05rem; font-weight:600; margin-bottom:8px;">Niet zeker wat u nodig heeft?</strong>
                 <p>Wij denken graag vrijblijvend mee tijdens een gratis inventarisatie.</p>
               </div>
               <a href="#contact" class="btn btn-copper">Gratis inventarisatie</a>
@@ -714,7 +714,7 @@
       </div>
 
       <div class="hero-actions">
-        <a href="#contact" class="btn btn-primary magnetic">Gratis offerte aanvragen</a>
+        <a href="#contact" class="btn btn-copper magnetic">Gratis offerte aanvragen</a>
         <a href="#diensten" class="btn btn-outline magnetic">Bekijk onze diensten</a>
       </div>
     </div>
