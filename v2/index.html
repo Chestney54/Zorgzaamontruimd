@@ -220,6 +220,7 @@
   .btn-outline:hover { background: var(--inkt); color: var(--bg); }
   .btn-copper { background: var(--koper); color: var(--kaart); }
   .btn-copper:hover { background: #8E4A2A; }
+  .magnetic { transition: transform 0.15s ease; }
 
   .header-cta { display: none; }
   @media (min-width: 780px) { .header-cta { display: inline-flex; } }
@@ -257,9 +258,15 @@
   .mobile-nav details li { border-top: 1px solid var(--lijn); }
   .mobile-nav details li a { font-size: 0.92rem; font-weight: 400; color: var(--inkt-zacht); padding: 12px 0; }
 
-  /* ===== HERO ===== */
-  .hero { padding: 60px 0 0; overflow: hidden; position: relative; }
-  .hero-layout { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; }
+  /* ===== HERO (full-bleed photo) ===== */
+  .hero { position: relative; min-height: 92vh; display: flex; align-items: flex-end; overflow: hidden; }
+  .hero-bg { position: absolute; inset: -6% -6%; z-index: 0; will-change: transform; }
+  .hero-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(22,41,47,0.35) 0%, rgba(22,41,47,0.58) 45%, rgba(18,32,37,0.94) 100%);
+  }
+  .hero-content { position: relative; z-index: 1; padding: 160px 0 84px; width: 100%; color: var(--bg); }
 
   .eyebrow {
     display: inline-flex;
@@ -273,27 +280,45 @@
     margin-bottom: 26px;
   }
   .eyebrow::after { content: ""; flex: 1; max-width: 90px; height: 1px; background: var(--lijn-sterk); }
+  .hero-content .eyebrow { color: var(--bg); }
+  .hero-content .eyebrow::after { background: rgba(241,239,228,0.32); }
 
   .hero h1 {
-    font-size: clamp(2.4rem, 4.4vw, 3.9rem);
+    font-size: clamp(2.6rem, 5.4vw, 4.6rem);
     margin-bottom: 26px;
-    max-width: 14ch;
+    max-width: 16ch;
+    color: var(--bg);
   }
-  .hero h1 em { font-style: italic; color: var(--koper); font-weight: 500; }
+  .hero h1 em { font-style: italic; color: var(--koper-licht); font-weight: 500; }
 
   .hero p.lead {
-    font-size: 1.1rem;
-    color: var(--inkt-zacht);
-    max-width: 48ch;
+    font-size: 1.15rem;
+    color: rgba(241, 239, 228, 0.88);
+    max-width: 52ch;
     margin-bottom: 34px;
     line-height: 1.7;
   }
 
-  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 40px; }
-  .vak-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 32px; }
-  .hero-divider { height: 1px; background: var(--lijn); margin-bottom: 32px; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 36px; }
+  .hero .btn-outline { border-color: rgba(241,239,228,0.6); color: var(--bg); }
+  .hero .btn-outline:hover { background: var(--bg); color: var(--inkt); }
+  .vak-row { display: flex; flex-wrap: wrap; gap: 10px; }
+  .hero .vak-label { background: rgba(251,250,246,0.1); border-color: rgba(241,239,228,0.35); color: var(--bg); backdrop-filter: blur(6px); }
 
-  .hero-stats { display: flex; gap: 44px; flex-wrap: wrap; padding-bottom: 56px; }
+  .hero-scroll-cue {
+    position: absolute; z-index: 1; bottom: 26px; left: 50%; transform: translateX(-50%);
+    color: rgba(241,239,228,0.75); display: flex; flex-direction: column; align-items: center; gap: 6px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.08em; text-transform: uppercase;
+    animation: hero-cue-bob 2.2s ease-in-out infinite;
+  }
+  .hero-scroll-cue svg { width: 16px; height: 16px; stroke: currentColor; }
+  @keyframes hero-cue-bob { 0%, 100% { transform: translate(-50%, 0); } 50% { transform: translate(-50%, 6px); } }
+  @media (max-width: 720px) { .hero-scroll-cue { display: none; } }
+
+  /* ===== STAT STRIP (light band directly under the photo hero) ===== */
+  .stat-strip { padding: 52px 0; border-bottom: 1px solid var(--lijn); }
+  .stat-strip-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+  @media (max-width: 720px) { .stat-strip-grid { grid-template-columns: 1fr; gap: 24px; } }
   .hero-stat b {
     display: block;
     font-family: 'Cormorant', serif;
@@ -302,48 +327,7 @@
     color: var(--koper);
     margin-bottom: 4px;
   }
-  .hero-stat span { font-size: 0.84rem; color: var(--inkt-zacht); }
-
-  /* ===== HERO GRAPHIC (no photography — bespoke arch motif) ===== */
-  .hero-graphic { position: relative; aspect-ratio: 1/1.05; display: flex; align-items: center; justify-content: center; }
-  .hero-graphic .arch-bg {
-    position: absolute; inset: 0;
-    background: var(--deep);
-    clip-path: path('M0,420 C0,180 90,0 260,0 C430,0 520,180 520,420 L520,520 L0,520 Z');
-    overflow: hidden;
-  }
-  .hero-graphic .arch-bg img { width: 100%; height: 100%; object-fit: cover; }
-  .hero-graphic .arch-bg::after {
-    content: ""; position: absolute; inset: 0;
-    background: linear-gradient(195deg, rgba(31,58,66,0.28), rgba(22,41,47,0.82));
-  }
-  .hero-graphic .badge-seal {
-    position: absolute; z-index: 2; bottom: 8%; left: 8%;
-    width: 76px; height: 76px;
-    border-radius: 50%;
-    background: var(--kaart);
-    display: flex; align-items: center; justify-content: center;
-    box-shadow: 0 16px 36px rgba(22,41,47,0.35);
-  }
-  .hero-graphic .badge-seal svg { width: 52%; height: 52%; }
-  .hero-graphic .float-chip {
-    position: absolute;
-    background: var(--kaart);
-    border: 1px solid var(--lijn-sterk);
-    padding: 12px 16px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 0.82rem;
-    font-weight: 600;
-    box-shadow: 0 12px 28px rgba(22,41,47,0.16);
-    z-index: 3;
-  }
-  .hero-graphic .float-chip svg { width: 16px; height: 16px; stroke: var(--moss); flex-shrink: 0; }
-  .hero-graphic .chip-1 { top: 10%; left: -6%; }
-  .hero-graphic .chip-2 { bottom: 12%; right: -8%; }
-  @media (max-width: 980px) { .hero-layout { grid-template-columns: 1fr; } .hero-graphic { max-width: 340px; margin: 0 auto; aspect-ratio: 1/0.95; } }
-  @media (max-width: 480px) { .hero-graphic .float-chip { font-size: 0.72rem; padding: 9px 12px; } .hero-graphic .chip-1 { left: -2%; } .hero-graphic .chip-2 { right: -2%; } }
+  .hero-stat span { font-size: 0.88rem; color: var(--inkt-zacht); }
 
   /* ===== SECTIONS GENERIC ===== */
   section { padding: 96px 0; }
@@ -361,22 +345,44 @@
   .dienst-tab.active { background: var(--deep); color: var(--bg); }
   @media (max-width: 480px) { .dienst-tabs { display: flex; width: 100%; } .dienst-tab { flex: 1; padding: 10px 8px; font-size: 0.82rem; } }
 
-  .diensten-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; }
-  .dienst-card { padding: 32px 28px; background: var(--kaart); border: 1px solid var(--lijn); transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease; display: flex; flex-direction: column; }
-  .dienst-card:hover { background: var(--bg); transform: translateY(-4px); box-shadow: 0 16px 32px rgba(28,43,46,0.12); }
+  .diensten-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+  .dienst-card {
+    position: relative; overflow: hidden; min-height: 360px; display: flex; align-items: flex-end;
+    border: 1px solid var(--lijn); background: var(--deep); color: var(--bg);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+  }
+  .dienst-card:hover { transform: translateY(-6px); box-shadow: 0 22px 44px rgba(22,41,47,0.28); }
   .js .diensten-grid[data-active] .dienst-card { display: none; }
   .js .diensten-grid[data-active="particulier"] .dienst-card[data-cat~="particulier"] { display: flex; }
   .js .diensten-grid[data-active="zakelijk"] .dienst-card[data-cat~="zakelijk"] { display: flex; }
   .js .diensten-grid[data-active="aanvullend"] .dienst-card[data-cat~="aanvullend"] { display: flex; }
-  .dienst-top { display: flex; align-items: center; justify-content: space-between; margin-bottom: 22px; }
-  .dienst-ic { width: 30px; height: 30px; }
-  .dienst-ic svg { width: 100%; height: 100%; stroke: var(--deep); }
-  .dienst-tag { font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: var(--koper); letter-spacing: 0.04em; text-transform: uppercase; }
-  .dienst-card h3 { font-size: 1.35rem; margin-bottom: 10px; font-weight: 500; }
-  .dienst-card p { color: var(--inkt-zacht); font-size: 0.95rem; flex: 1; }
-  .dienst-more { display: inline-flex; align-items: center; gap: 6px; margin-top: 18px; font-size: 0.85rem; font-weight: 600; color: var(--deep); }
-  .dienst-more svg { width: 13px; height: 13px; stroke: var(--deep); transition: transform 0.2s ease; }
+
+  .dienst-card-bg { position: absolute; inset: 0; z-index: 0; }
+  .dienst-card-bg img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .dienst-card:hover .dienst-card-bg img { transform: scale(1.08); }
+  .dienst-card-bg::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(22,41,47,0.05) 0%, rgba(20,36,41,0.92) 82%);
+  }
+  .dienst-tag-float {
+    position: absolute; z-index: 1; top: 18px; left: 18px;
+    font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; letter-spacing: 0.04em; text-transform: uppercase;
+    color: var(--bg); background: rgba(251,250,246,0.14); border: 1px solid rgba(241,239,228,0.35);
+    padding: 6px 12px; backdrop-filter: blur(6px);
+  }
+  .dienst-card:not(.has-photo) .dienst-tag-float { color: var(--koper-licht); background: none; border: none; padding: 0; backdrop-filter: none; position: static; margin-bottom: 14px; }
+  .dienst-card:not(.has-photo) .dienst-card-body { padding-top: 0; }
+  .dienst-card:not(.has-photo) { align-items: stretch; }
+  .dienst-card:not(.has-photo) .dienst-card-body { display: flex; flex-direction: column; justify-content: flex-end; height: 100%; }
+  .dienst-card:not(.has-photo):hover { background: var(--deep-donker); }
+
+  .dienst-card-body { position: relative; z-index: 1; padding: 26px 24px; width: 100%; }
+  .dienst-card h3 { font-size: 1.35rem; margin-bottom: 10px; font-weight: 500; color: var(--bg); }
+  .dienst-card p { color: rgba(241,239,228,0.82); font-size: 0.95rem; }
+  .dienst-more { display: inline-flex; align-items: center; gap: 6px; margin-top: 16px; font-size: 0.85rem; font-weight: 600; color: var(--bg); }
+  .dienst-more svg { width: 13px; height: 13px; stroke: var(--bg); transition: transform 0.2s ease; }
   .dienst-card:hover .dienst-more svg { transform: translateX(3px); }
+  @media (max-width: 480px) { .dienst-card { min-height: 300px; } }
 
   .extra-diensten { margin-top: 40px; padding-top: 36px; border-top: 1px solid var(--lijn); }
   .extra-diensten .lbl { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; letter-spacing: 0.03em; text-transform: uppercase; color: var(--inkt-zacht); margin-bottom: 16px; display: block; }
@@ -384,13 +390,60 @@
   .extra-chip { font-size: 0.9rem; color: var(--inkt); border: 1px solid var(--lijn-sterk); background: var(--kaart); padding: 9px 15px; display: inline-flex; align-items: center; gap: 8px; }
   .extra-chip svg { width: 14px; height: 14px; stroke: var(--koper); flex-shrink: 0; }
 
-  /* ===== WERKWIJZE ===== */
-  .werkwijze-list { display: flex; flex-direction: column; }
-  .stap { display: grid; grid-template-columns: 140px 1fr; gap: 32px; padding: 34px 0; border-top: 1px solid var(--lijn); }
-  .stap:last-child { border-bottom: 1px solid var(--lijn); }
-  .stap-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--koper); letter-spacing: 0.03em; padding-top: 4px; }
-  .stap-content h3 { font-size: 1.5rem; margin-bottom: 10px; font-weight: 500; }
-  .stap-content p { color: var(--inkt-zacht); max-width: 60ch; }
+  /* ===== IN BEELD (foto-carrousel, full-bleed dark) ===== */
+  .in-beeld { background: var(--deep-donker); color: var(--bg); position: relative; overflow: hidden; }
+  .in-beeld .section-head h2, .in-beeld .section-head p.eyebrow { color: var(--bg); }
+  .in-beeld .section-head h2 { color: var(--bg); }
+  .in-beeld .section-head p { color: rgba(241,239,228,0.72); }
+  .in-beeld-track {
+    display: flex; gap: 18px; overflow-x: auto; scroll-snap-type: x mandatory;
+    padding: 4px max(28px, calc((100% - 1160px) / 2 + 28px)) 12px; scrollbar-width: none;
+  }
+  .in-beeld-track::-webkit-scrollbar { display: none; }
+  .in-beeld-slide {
+    position: relative; flex: 0 0 min(360px, 78vw); aspect-ratio: 4/5; scroll-snap-align: start;
+    overflow: hidden; background: var(--deep);
+  }
+  .in-beeld-slide img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+  .in-beeld-slide:hover img { transform: scale(1.06); }
+  .in-beeld-slide::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(22,41,47,0.05) 40%, rgba(16,28,32,0.9) 100%);
+  }
+  .in-beeld-caption { position: absolute; z-index: 1; left: 18px; right: 18px; bottom: 16px; }
+  .in-beeld-caption .tag { font-family: 'JetBrains Mono', monospace; font-size: 0.66rem; letter-spacing: 0.05em; text-transform: uppercase; color: var(--koper-licht); display: block; margin-bottom: 6px; }
+  .in-beeld-caption p { color: var(--bg); font-size: 0.98rem; font-weight: 500; margin: 0; }
+  .in-beeld-nav { display: flex; justify-content: flex-end; gap: 8px; margin-top: 22px; }
+  .in-beeld-nav .wz-nav-btn { background: rgba(251,250,246,0.08); border-color: rgba(241,239,228,0.3); }
+  .in-beeld-nav .wz-nav-btn svg { stroke: var(--bg); }
+  .in-beeld-nav .wz-nav-btn:hover { background: var(--koper); }
+  @media (max-width: 720px) { .in-beeld-nav { display: none; } }
+
+  /* ===== WERKWIJZE (horizontale slider) ===== */
+  .werkwijze-progress-row { display: flex; align-items: center; gap: 20px; margin-bottom: 8px; }
+  .werkwijze-progress-track { flex: 1; height: 2px; background: var(--lijn); position: relative; }
+  .werkwijze-progress-bar { position: absolute; left: 0; top: 0; height: 100%; background: var(--koper); width: 20%; transition: width 0.25s ease; }
+  .wz-nav-btn { width: 42px; height: 42px; border: 1px solid var(--lijn-sterk); background: var(--kaart); display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: background 0.2s ease; }
+  .wz-nav-btn svg { width: 16px; height: 16px; stroke: var(--deep); transition: stroke 0.2s ease; }
+  .wz-nav-btn:hover { background: var(--deep); }
+  .wz-nav-btn:hover svg { stroke: var(--bg); }
+  .wz-nav-group { display: flex; gap: 8px; }
+
+  .werkwijze-track {
+    display: flex; gap: 22px; overflow-x: auto; scroll-snap-type: x proximity;
+    padding: 26px max(28px, calc((100% - 1160px) / 2 + 28px)) 20px; scrollbar-width: none;
+  }
+  .werkwijze-track::-webkit-scrollbar { display: none; }
+  .stap {
+    flex: 0 0 min(300px, 78vw); scroll-snap-align: start;
+    background: var(--kaart); border: 1px solid var(--lijn); padding: 30px 26px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  }
+  .stap.is-active { border-color: var(--koper); box-shadow: 0 18px 36px rgba(28,43,46,0.12); transform: translateY(-4px); }
+  .stap-label { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: var(--koper); letter-spacing: 0.03em; display: block; margin-bottom: 14px; }
+  .stap-content h3 { font-size: 1.35rem; margin-bottom: 10px; font-weight: 500; }
+  .stap-content p { color: var(--inkt-zacht); }
+  @media (max-width: 720px) { .werkwijze-progress-row .wz-nav-group { display: none; } }
 
   /* ===== VOOR WIE ===== */
   .doelgroep-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 28px; }
@@ -415,14 +468,20 @@
   .prijs-card p { color: rgba(241, 239, 228, 0.8); font-size: 0.98rem; line-height: 1.7; margin-bottom: 28px; }
   .prijs-card .btn { width: 100%; }
 
-  /* ===== BELOFTE ===== */
-  .belofte { background: var(--deep); color: var(--bg); padding: 68px 56px; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 52px; align-items: center; }
+  /* ===== BELOFTE (full-bleed foto-band) ===== */
+  #waarom { padding: 0; }
+  .belofte { position: relative; overflow: hidden; color: var(--bg); padding: 96px 0; display: flex; align-items: center; min-height: 480px; }
+  .belofte-bg { position: absolute; inset: -6% -6%; z-index: 0; will-change: transform; }
+  .belofte-bg img { width: 100%; height: 100%; object-fit: cover; }
+  .belofte-bg::after { content: ""; position: absolute; inset: 0; background: linear-gradient(100deg, rgba(15,27,31,0.92) 0%, rgba(20,36,41,0.8) 45%, rgba(31,58,66,0.55) 100%); }
+  .belofte-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 52px; align-items: center; width: 100%; }
   .belofte h2 { color: var(--bg); font-size: clamp(1.9rem, 3vw, 2.5rem); margin-bottom: 20px; font-weight: 500; }
   .belofte p { color: rgba(241, 239, 228, 0.82); font-size: 1.04rem; line-height: 1.7; }
   .belofte-stats { display: flex; flex-direction: column; gap: 24px; }
   .belofte-stat { border-left: 1.5px solid var(--koper); padding-left: 20px; }
   .belofte-stat .num { font-family: 'Cormorant', serif; font-weight: 500; font-size: 2rem; display: block; }
   .belofte-stat .lbl { font-size: 0.86rem; color: rgba(241, 239, 228, 0.65); }
+  @media (max-width: 900px) { .belofte-inner { grid-template-columns: 1fr; } }
 
   /* ===== USP GRID ===== */
   .usp-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--lijn); border: 1px solid var(--lijn); }
@@ -442,6 +501,8 @@
   /* ===== AANPAK / MANIFEST ===== */
   .aanpak-section { background: var(--bg-warm); border-top: 1px solid var(--lijn); border-bottom: 1px solid var(--lijn); }
   .aanpak-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 40px; margin-top: 8px; }
+  .aanpak-block { padding: 24px; border-left: 2px solid var(--lijn); transition: border-color 0.3s ease, transform 0.3s ease; }
+  .aanpak-block:hover { border-color: var(--koper); transform: translateX(4px); }
   .aanpak-block blockquote { font-family: 'Cormorant', serif; font-style: italic; font-weight: 400; font-size: clamp(1.25rem, 2vw, 1.55rem); line-height: 1.45; margin-bottom: 18px; color: var(--inkt); }
   .aanpak-block cite { font-style: normal; font-family: 'JetBrains Mono', monospace; color: var(--koper); font-size: 0.75rem; letter-spacing: 0.04em; text-transform: uppercase; }
 
@@ -517,7 +578,7 @@
   .footer-bottom { border-top: 1px solid rgba(241, 239, 228, 0.14); padding-top: 26px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: rgba(241, 239, 228, 0.5); }
 
   @media (max-width: 900px) {
-    .belofte { grid-template-columns: 1fr; padding: 44px 30px; }
+    .belofte { padding: 64px 0; }
     .contact-inner { grid-template-columns: 1fr; }
     .footer-inner { grid-template-columns: 1fr; }
     .prijs-layout { grid-template-columns: 1fr; }
@@ -526,12 +587,11 @@
   @media (max-width: 720px) {
     nav { display: none; }
     .nav-toggle { display: flex; }
-    .stap { grid-template-columns: 1fr; gap: 10px; }
     .factor { grid-template-columns: 22px 1fr; }
     .form-row { grid-template-columns: 1fr; }
     section { padding: 64px 0; }
-    .hero { padding: 44px 0 0; }
-    .hero-stats { gap: 32px; }
+    .hero { min-height: 78vh; }
+    .hero-content { padding: 130px 0 60px; }
     .mobile-cta-bar { display: flex; }
     body { padding-bottom: 78px; }
   }
@@ -638,50 +698,38 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div class="container">
-      <div class="hero-layout">
-        <div>
-          <span class="eyebrow">Woning- &amp; bedrijfsontruiming in heel Nederland</span>
-          <h1>Ruimte maken, <em>zonder gedoe.</em></h1>
-          <p class="lead">Of het nu gaat om een verhuizing, verkoop, seniorenverhuizing, een overlijden of het leegruimen van een bedrijfspand: wij ontruimen woningen, kamers, zolders, garages en bedrijfsruimtes met rust, precisie en respect, van eerste rondgang tot bezemschone oplevering, tegen één vaste prijs die u vooraf kent.</p>
+    <div class="hero-bg" data-parallax>
+      <img src="images/hero-woonkamer.jpg" alt="Rustig ingepakte verhuisdozen in een lichte woonkamer tijdens een woningontruiming" loading="eager" fetchpriority="high" width="1000" height="1250">
+    </div>
+    <div class="container hero-content">
+      <span class="eyebrow">Woning- &amp; bedrijfsontruiming in heel Nederland</span>
+      <h1>Ruimte maken, <em>zonder gedoe.</em></h1>
+      <p class="lead">Of het nu gaat om een verhuizing, verkoop, seniorenverhuizing, een overlijden of het leegruimen van een bedrijfspand: wij ontruimen woningen, kamers, zolders, garages en bedrijfsruimtes met rust, precisie en respect, van eerste rondgang tot bezemschone oplevering, tegen één vaste prijs die u vooraf kent.</p>
 
-          <div class="vak-row">
-            <span class="vak-label">gratis inventarisatie</span>
-            <span class="vak-label">vaste prijs vooraf</span>
-            <span class="vak-label">reactie binnen 1 werkdag</span>
-            <span class="vak-label">heel nederland</span>
-          </div>
-
-          <div class="hero-actions">
-            <a href="#contact" class="btn btn-primary">Gratis offerte aanvragen</a>
-            <a href="#diensten" class="btn btn-outline">Bekijk onze diensten</a>
-          </div>
-
-          <div class="hero-divider"></div>
-
-          <div class="hero-stats">
-            <div class="hero-stat"><b>Gratis</b><span>Eerste bezoek, altijd vrijblijvend</span></div>
-            <div class="hero-stat"><b>Vast</b><span>Eén prijs, afgesproken vooraf</span></div>
-            <div class="hero-stat"><b>Persoonlijk</b><span>Eén vast aanspreekpunt, het hele traject</span></div>
-          </div>
-        </div>
-
-        <div class="hero-graphic">
-          <div class="arch-bg">
-            <img src="images/hero-woonkamer.jpg" alt="Rustig ingepakte verhuisdozen in een lichte woonkamer tijdens een woningontruiming" loading="eager" fetchpriority="high" width="1000" height="1250">
-          </div>
-          <div class="badge-seal" aria-hidden="true">
-            <svg viewBox="0 0 44 44" fill="none">
-              <path d="M22 2.8L39.5 12.4V31.6L22 41.2L4.5 31.6V12.4L22 2.8Z" stroke="#1F3A42" stroke-width="1.1" stroke-linejoin="round"/>
-              <path d="M13.5 24.5L22 15.2L30.5 24.5" stroke="#1F3A42" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-              <path d="M16.2 23V32H27.8V23" stroke="#1F3A42" stroke-width="1.9" stroke-linejoin="round"/>
-              <path d="M12.5 28C15.4 30.6 18.6 31.9 22 31.9C25.4 31.9 28.6 30.6 31.5 28" stroke="#A85A34" stroke-width="1.7" stroke-linecap="round"/>
-            </svg>
-          </div>
-          <div class="float-chip chip-1"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 12l6 6L21 6"/></svg>Vaste prijs vooraf</div>
-          <div class="float-chip chip-2"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 12l6 6L21 6"/></svg>Bezemschoon opgeleverd</div>
-        </div>
+      <div class="vak-row">
+        <span class="vak-label">gratis inventarisatie</span>
+        <span class="vak-label">vaste prijs vooraf</span>
+        <span class="vak-label">reactie binnen 1 werkdag</span>
+        <span class="vak-label">heel nederland</span>
       </div>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn btn-primary magnetic">Gratis offerte aanvragen</a>
+        <a href="#diensten" class="btn btn-outline magnetic">Bekijk onze diensten</a>
+      </div>
+    </div>
+    <a href="#stat-strip" class="hero-scroll-cue">
+      Scroll
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+  </section>
+
+  <!-- STAT STRIP -->
+  <section class="stat-strip" id="stat-strip">
+    <div class="container stat-strip-grid">
+      <div class="hero-stat"><b>Gratis</b><span>Eerste bezoek, altijd vrijblijvend</span></div>
+      <div class="hero-stat"><b>Vast</b><span>Eén prijs, afgesproken vooraf</span></div>
+      <div class="hero-stat"><b>Persoonlijk</b><span>Eén vast aanspreekpunt, het hele traject</span></div>
     </div>
   </section>
 
@@ -701,82 +749,80 @@
 
       <div class="diensten-grid" id="diensten-grid" data-active="particulier">
 
-        <a class="dienst-card" data-cat="particulier" href="diensten/woningontruiming.html">
-          <div class="dienst-top">
-            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11.5L12 4l9 7.5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v9.5h13V10" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
-            <span class="dienst-tag">Particulier</span>
+        <a class="dienst-card has-photo" data-cat="particulier" href="diensten/woningontruiming.html">
+          <div class="dienst-card-bg"><img src="images/dienst-woningontruiming.jpg" alt="" loading="lazy" width="1200" height="900"></div>
+          <span class="dienst-tag-float">Particulier</span>
+          <div class="dienst-card-body">
+            <h3>Woningontruiming</h3>
+            <p>Complete ontruiming van huis, appartement, kamer, zolder of garage, bijvoorbeeld bij verhuizing, emigratie, verkoop of na een overlijden.</p>
+            <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </div>
-          <h3>Woningontruiming</h3>
-          <p>Complete ontruiming van huis, appartement, kamer, zolder of garage, bijvoorbeeld bij verhuizing, emigratie, verkoop of na een overlijden. Wij nemen de tijd die nodig is.</p>
-          <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <a class="dienst-card" data-cat="particulier" href="diensten/sterfhuis-nalatenschap.html">
-          <div class="dienst-top">
-            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7.5-4.8-7.5-10.5A5.5 5.5 0 0112 6.2a5.5 5.5 0 017.5 4.3C19.5 16.2 12 21 12 21z" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
-            <span class="dienst-tag">Nabestaanden</span>
+        <a class="dienst-card has-photo" data-cat="particulier" href="diensten/sterfhuis-nalatenschap.html">
+          <div class="dienst-card-bg"><img src="images/dienst-sterfhuis.jpg" alt="" loading="lazy" width="1000" height="1250"></div>
+          <span class="dienst-tag-float">Nabestaanden</span>
+          <div class="dienst-card-body">
+            <h3>Sterfhuis &amp; nalatenschap</h3>
+            <p>Ontruiming na een overlijden, in overleg met nabestaanden, executeur of notaris. Rustig tempo, met ruimte voor persoonlijke herinneringen.</p>
+            <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </div>
-          <h3>Sterfhuis &amp; nalatenschap</h3>
-          <p>Ontruiming na een overlijden, in overleg met nabestaanden, executeur of notaris. Rustig tempo, met ruimte voor het sorteren van persoonlijke herinneringen.</p>
-          <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <a class="dienst-card" data-cat="particulier" href="diensten/seniorenverhuizing.html">
-          <div class="dienst-top">
-            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16M15 6l6 6-6 6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span class="dienst-tag">Senioren</span>
+        <a class="dienst-card has-photo" data-cat="particulier" href="diensten/seniorenverhuizing.html">
+          <div class="dienst-card-bg"><img src="images/dienst-senioren.jpg" alt="" loading="lazy" width="1000" height="1250"></div>
+          <span class="dienst-tag-float">Senioren</span>
+          <div class="dienst-card-body">
+            <h3>Seniorenverhuizing &amp; doorstroom</h3>
+            <p>Begeleiding bij de overgang naar een kleinere woning of zorginstelling: samen selecteren wat meegaat, de rest nemen wij zorgvuldig over.</p>
+            <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </div>
-          <h3>Seniorenverhuizing &amp; doorstroom</h3>
-          <p>Begeleiding bij de overgang naar een kleinere woning of zorginstelling: samen selecteren wat meegaat, de rest nemen wij zorgvuldig over.</p>
-          <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <a class="dienst-card" data-cat="particulier zakelijk" href="diensten/spoedontruiming.html">
-          <div class="dienst-top">
-            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke-width="1.4" stroke-linejoin="round"/></svg></div>
-            <span class="dienst-tag">Spoed</span>
+        <a class="dienst-card has-photo" data-cat="particulier zakelijk" href="diensten/spoedontruiming.html">
+          <div class="dienst-card-bg"><img src="images/dienst-spoed.jpg" alt="" loading="lazy" width="1200" height="675"></div>
+          <span class="dienst-tag-float">Spoed</span>
+          <div class="dienst-card-body">
+            <h3>Spoedontruiming</h3>
+            <p>Korte deadline door verhuurder of makelaar? Wij schakelen snel, ook binnen enkele dagen, zonder in te leveren op zorgvuldigheid.</p>
+            <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </div>
-          <h3>Spoedontruiming</h3>
-          <p>Korte deadline door verhuurder of makelaar? Wij schakelen snel, ook binnen enkele dagen, zonder in te leveren op zorgvuldigheid. Inzetbaar bij zowel particuliere als zakelijke ontruimingen.</p>
-          <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <a class="dienst-card" data-cat="zakelijk" href="diensten/bedrijfsontruiming.html">
-          <div class="dienst-top">
-            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 21V9l4-3 4 3v12M12 21V6l4-3 4 3v15" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
-            <span class="dienst-tag">Zakelijk</span>
+        <a class="dienst-card has-photo" data-cat="zakelijk" href="diensten/bedrijfsontruiming.html">
+          <div class="dienst-card-bg"><img src="images/dienst-bedrijf.jpg" alt="" loading="lazy" width="1200" height="675"></div>
+          <span class="dienst-tag-float">Zakelijk</span>
+          <div class="dienst-card-body">
+            <h3>Bedrijfs- &amp; kantoorontruiming</h3>
+            <p>Ontruiming van kantoren, winkels, bedrijfspanden en opslagruimtes bij verhuizing, faillissement of huurbeëindiging, inclusief meubilair en archief.</p>
+            <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </div>
-          <h3>Bedrijfs- &amp; kantoorontruiming</h3>
-          <p>Ontruiming van kantoren, winkels, bedrijfspanden en opslagruimtes bij verhuizing, faillissement of huurbeëindiging, inclusief meubilair en archief.</p>
-          <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
 
-        <a class="dienst-card" data-cat="aanvullend" href="diensten/bezemschone-oplevering.html">
-          <div class="dienst-top">
-            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20h16M6 20V9l6-5 6 5v11" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke-width="1.7" stroke-linejoin="round"/></svg></div>
-            <span class="dienst-tag">Oplevering</span>
+        <a class="dienst-card has-photo" data-cat="aanvullend" href="diensten/bezemschone-oplevering.html">
+          <div class="dienst-card-bg"><img src="images/dienst-bezemschoon.jpg" alt="" loading="lazy" width="1200" height="675"></div>
+          <span class="dienst-tag-float">Oplevering</span>
+          <div class="dienst-card-body">
+            <h3>Bezemschone oplevering</h3>
+            <p>Wij zorgen dat de woning schoon en leeg wordt opgeleverd, klaar voor de sleuteloverdracht. Ook los van een volledige ontruiming.</p>
+            <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
           </div>
-          <h3>Bezemschone oplevering</h3>
-          <p>Wij zorgen dat de woning schoon en leeg wordt opgeleverd aan verhuurder, makelaar of nieuwe bewoner, klaar voor de sleuteloverdracht. Ook los van een volledige ontruiming.</p>
-          <span class="dienst-more">Meer over deze dienst <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
 
         <div class="dienst-card" data-cat="aanvullend">
-          <div class="dienst-top">
-            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 8l9-5 9 5-9 5-9-5z" stroke-width="1.6" stroke-linejoin="round"/><path d="M3 8v8l9 5 9-5V8" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
-            <span class="dienst-tag">Waardebepaling</span>
+          <div class="dienst-card-body">
+            <span class="dienst-tag-float"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linejoin="round" style="width:16px;height:16px;stroke:var(--koper-licht);display:inline;vertical-align:-3px;margin-right:6px;"><path d="M3 8l9-5 9 5-9 5-9-5z"/><path d="M3 8v8l9 5 9-5V8"/></svg>Waardebepaling</span>
+            <h3>Inboedel opruimen &amp; opkoop</h3>
+            <p>Wij sorteren spullen op wens: bewaren, doneren, verkopen of afvoeren. Waardevolle items kunnen wij opkopen, wat in mindering komt op uw offerte.</p>
           </div>
-          <h3>Inboedel opruimen &amp; opkoop</h3>
-          <p>Wij sorteren spullen op wens: bewaren, doneren, verkopen of afvoeren. Waardevolle items kunnen wij opkopen, wat in mindering komt op uw offerte.</p>
         </div>
 
         <div class="dienst-card" data-cat="aanvullend">
-          <div class="dienst-top">
-            <div class="dienst-ic"><svg viewBox="0 0 24 24" fill="none"><path d="M17 2.1l4 2.3-4 2.3M3 11a8.1 8.1 0 0014.9 4.4M7 21.9l-4-2.3 4-2.3M21 13a8.1 8.1 0 00-14.9-4.4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
-            <span class="dienst-tag">Duurzaam</span>
+          <div class="dienst-card-body">
+            <span class="dienst-tag-float"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" style="width:16px;height:16px;stroke:var(--koper-licht);display:inline;vertical-align:-3px;margin-right:6px;"><path d="M17 2.1l4 2.3-4 2.3M3 11a8.1 8.1 0 0014.9 4.4M7 21.9l-4-2.3 4-2.3M21 13a8.1 8.1 0 00-14.9-4.4"/></svg>Duurzaam</span>
+            <h3>Afvoer &amp; een tweede leven</h3>
+            <p>Verantwoorde afvoer van meubels en huisraad. Bruikbare spullen krijgen waar mogelijk een tweede leven via kringloop of een goed doel.</p>
           </div>
-          <h3>Afvoer &amp; een tweede leven</h3>
-          <p>Verantwoorde afvoer van meubels en huisraad. Bruikbare spullen krijgen waar mogelijk een tweede leven via kringloop of een goed doel.</p>
         </div>
 
       </div>
@@ -793,6 +839,32 @@
     </div>
   </section>
 
+  <!-- IN BEELD -->
+  <section class="in-beeld" id="in-beeld">
+    <div class="container">
+      <div class="section-head">
+        <h2>Een indruk van ons werk</h2>
+        <p>Sfeerbeelden die laten zien waar wij voor staan: rust, zorgvuldigheid en een lege, schone ruimte aan het eind.</p>
+      </div>
+    </div>
+    <div class="in-beeld-track" id="inBeeldTrack">
+      <div class="in-beeld-slide"><img src="images/hero-woonkamer.jpg" alt="Verhuisdozen in een lichte woonkamer" loading="lazy" width="1000" height="1250"><div class="in-beeld-caption"><span class="tag">Woningontruiming</span><p>Rustig ingepakt, klaar voor vertrek</p></div></div>
+      <div class="in-beeld-slide"><img src="images/dienst-woningontruiming.jpg" alt="Verhuizers dragen meubilair naar buiten" loading="lazy" width="1200" height="900"><div class="in-beeld-caption"><span class="tag">Uitvoering</span><p>Zorgvuldig getild, niets beschadigd</p></div></div>
+      <div class="in-beeld-slide"><img src="images/dienst-sterfhuis.jpg" alt="Handen pakken herinneringen zorgvuldig in" loading="lazy" width="1000" height="1250"><div class="in-beeld-caption"><span class="tag">Sterfhuis &amp; nalatenschap</span><p>Ruimte voor wat dierbaar is</p></div></div>
+      <div class="in-beeld-slide"><img src="images/dienst-bezemschoon.jpg" alt="Volledig lege, schone woonkamer" loading="lazy" width="1200" height="675"><div class="in-beeld-caption"><span class="tag">Bezemschoon</span><p>Klaar voor de sleuteloverdracht</p></div></div>
+      <div class="in-beeld-slide"><img src="images/dienst-bedrijf.jpg" alt="Lege kantoorruimte tijdens ontruiming" loading="lazy" width="1200" height="675"><div class="in-beeld-caption"><span class="tag">Bedrijfsontruiming</span><p>Zakelijk, snel en netjes</p></div></div>
+      <div class="in-beeld-slide"><img src="images/dienst-senioren.jpg" alt="Samen spullen inpakken voor een seniorenverhuizing" loading="lazy" width="1000" height="1250"><div class="in-beeld-caption"><span class="tag">Seniorenverhuizing</span><p>Samen kiezen wat meegaat</p></div></div>
+      <div class="in-beeld-slide"><img src="images/dienst-spoed.jpg" alt="Verhuizers laden snel een verhuiswagen in" loading="lazy" width="1200" height="675"><div class="in-beeld-caption"><span class="tag">Spoedontruiming</span><p>Snel schakelen, geen chaos</p></div></div>
+      <div class="in-beeld-slide"><img src="images/contact-inventarisatie.jpg" alt="Notities maken tijdens een inventarisatie" loading="lazy" width="1000" height="750"><div class="in-beeld-caption"><span class="tag">Inventarisatie</span><p>Het begin van elk traject</p></div></div>
+    </div>
+    <div class="container">
+      <div class="in-beeld-nav">
+        <button type="button" class="wz-nav-btn" data-carousel-prev="inBeeldTrack" aria-label="Vorige foto"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <button type="button" class="wz-nav-btn" data-carousel-next="inBeeldTrack" aria-label="Volgende foto"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+      </div>
+    </div>
+  </section>
+
   <!-- WERKWIJZE -->
   <section id="werkwijze">
     <div class="container">
@@ -800,28 +872,35 @@
         <h2>Zo werken wij</h2>
         <p>Vijf stappen, helder en zonder verrassingen, van eerste contact tot nazorg.</p>
       </div>
+      <div class="werkwijze-progress-row">
+        <div class="werkwijze-progress-track"><div class="werkwijze-progress-bar" id="werkwijzeProgress"></div></div>
+        <div class="wz-nav-group">
+          <button type="button" class="wz-nav-btn" data-carousel-prev="werkwijzeTrack" aria-label="Vorige stap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+          <button type="button" class="wz-nav-btn" data-carousel-next="werkwijzeTrack" aria-label="Volgende stap"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18l6-6-6-6"/></svg></button>
+        </div>
+      </div>
+    </div>
 
-      <div class="werkwijze-list">
-        <div class="stap">
-          <div class="stap-label mono">STAP — 01</div>
-          <div class="stap-content"><h3>Gratis inventarisatie</h3><p>Wij komen langs, bekijken de situatie rustig samen met u en luisteren naar wat er nodig is. Geen verplichtingen, geen druk.</p></div>
-        </div>
-        <div class="stap">
-          <div class="stap-label mono">STAP — 02</div>
-          <div class="stap-content"><h3>Heldere offerte</h3><p>U ontvangt een vaste prijs, afgestemd op de omvang van de ontruiming. Geen verborgen kosten achteraf.</p></div>
-        </div>
-        <div class="stap">
-          <div class="stap-label mono">STAP — 03</div>
-          <div class="stap-content"><h3>Zorgvuldige uitvoering</h3><p>Op de afgesproken datum ontruimen wij de woning. Persoonlijke of waardevolle spullen behandelen wij met bijzondere aandacht.</p></div>
-        </div>
-        <div class="stap">
-          <div class="stap-label mono">STAP — 04</div>
-          <div class="stap-content"><h3>Bezemschone oplevering</h3><p>Wij ronden af met een schone, lege woning, klaar voor overdracht aan verhuurder, makelaar of nieuwe bewoner.</p></div>
-        </div>
-        <div class="stap">
-          <div class="stap-label mono">STAP — 05</div>
-          <div class="stap-content"><h3>Controle &amp; nazorg</h3><p>Samen lopen wij de woning nog eens door, zodat u zeker weet dat alles naar wens is. Vragen achteraf? Wij blijven bereikbaar.</p></div>
-        </div>
+    <div class="werkwijze-track" id="werkwijzeTrack">
+      <div class="stap is-active">
+        <span class="stap-label mono">STAP — 01</span>
+        <div class="stap-content"><h3>Gratis inventarisatie</h3><p>Wij komen langs, bekijken de situatie rustig samen met u en luisteren naar wat er nodig is. Geen verplichtingen, geen druk.</p></div>
+      </div>
+      <div class="stap">
+        <span class="stap-label mono">STAP — 02</span>
+        <div class="stap-content"><h3>Heldere offerte</h3><p>U ontvangt een vaste prijs, afgestemd op de omvang van de ontruiming. Geen verborgen kosten achteraf.</p></div>
+      </div>
+      <div class="stap">
+        <span class="stap-label mono">STAP — 03</span>
+        <div class="stap-content"><h3>Zorgvuldige uitvoering</h3><p>Op de afgesproken datum ontruimen wij de woning. Persoonlijke of waardevolle spullen behandelen wij met bijzondere aandacht.</p></div>
+      </div>
+      <div class="stap">
+        <span class="stap-label mono">STAP — 04</span>
+        <div class="stap-content"><h3>Bezemschone oplevering</h3><p>Wij ronden af met een schone, lege woning, klaar voor overdracht aan verhuurder, makelaar of nieuwe bewoner.</p></div>
+      </div>
+      <div class="stap">
+        <span class="stap-label mono">STAP — 05</span>
+        <div class="stap-content"><h3>Controle &amp; nazorg</h3><p>Samen lopen wij de woning nog eens door, zodat u zeker weet dat alles naar wens is. Vragen achteraf? Wij blijven bereikbaar.</p></div>
       </div>
     </div>
   </section>
@@ -871,8 +950,9 @@
 
   <!-- WAAROM / BELOFTE -->
   <section id="waarom">
-    <div class="container">
-      <div class="belofte">
+    <div class="belofte">
+      <div class="belofte-bg" data-parallax><img src="images/dienst-bezemschoon.jpg" alt="" loading="lazy" width="1200" height="675"></div>
+      <div class="container belofte-inner">
         <div>
           <h2>Wij behandelen elk huis alsof het ons eigen huis was.</h2>
           <p>Achter elke ontruiming zit een verhaal: een verhuizing, een nieuw begin, soms een afscheid. Wij nemen de tijd om dat te respecteren, en werken pas snel wanneer dat nodig is, nooit over de rug van zorgvuldigheid.</p>
@@ -1132,7 +1212,7 @@
       });
     }
 
-    var revealEls = document.querySelectorAll('.section-head, .dienst-card, .usp-card, .doelgroep-card, .stap, .aanpak-block, .factor');
+    var revealEls = document.querySelectorAll('.section-head, .dienst-card, .usp-card, .doelgroep-card, .stap, .aanpak-block, .factor, .in-beeld-slide');
     revealEls.forEach(function (el) { el.classList.add('reveal'); });
     if ('IntersectionObserver' in window) {
       var io = new IntersectionObserver(function (entries) {
@@ -1143,6 +1223,70 @@
       revealEls.forEach(function (el) { io.observe(el); });
     } else {
       revealEls.forEach(function (el) { el.classList.add('in-view'); });
+    }
+
+    var reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Generic horizontal-scroll carousels (werkwijze + in-beeld)
+    document.querySelectorAll('[data-carousel-prev], [data-carousel-next]').forEach(function (btn) {
+      var targetId = btn.getAttribute('data-carousel-prev') || btn.getAttribute('data-carousel-next');
+      var dir = btn.hasAttribute('data-carousel-prev') ? -1 : 1;
+      btn.addEventListener('click', function () {
+        var track = document.getElementById(targetId);
+        if (!track) { return; }
+        var card = track.querySelector(':scope > *');
+        var step = card ? card.getBoundingClientRect().width + 22 : 300;
+        track.scrollBy({ left: dir * step, behavior: reduceMotion ? 'auto' : 'smooth' });
+      });
+    });
+
+    // Werkwijze: progress bar + active-step highlight based on scroll position
+    var wzTrack = document.getElementById('werkwijzeTrack');
+    var wzProgress = document.getElementById('werkwijzeProgress');
+    if (wzTrack && wzProgress) {
+      var wzSteps = wzTrack.querySelectorAll('.stap');
+      var updateWz = function () {
+        var maxScroll = wzTrack.scrollWidth - wzTrack.clientWidth;
+        var pct = maxScroll > 0 ? (wzTrack.scrollLeft / maxScroll) * 100 : 0;
+        wzProgress.style.width = Math.max(8, pct) + '%';
+        var center = wzTrack.scrollLeft + wzTrack.clientWidth / 2;
+        var closest = null, closestDist = Infinity;
+        wzSteps.forEach(function (step) {
+          var mid = step.offsetLeft + step.offsetWidth / 2;
+          var dist = Math.abs(mid - center);
+          if (dist < closestDist) { closestDist = dist; closest = step; }
+        });
+        wzSteps.forEach(function (step) { step.classList.toggle('is-active', step === closest); });
+      };
+      wzTrack.addEventListener('scroll', function () { requestAnimationFrame(updateWz); }, { passive: true });
+      updateWz();
+    }
+
+    // Subtle scroll parallax on hero and belofte background photos
+    var parallaxEls = document.querySelectorAll('[data-parallax]');
+    if (parallaxEls.length && !reduceMotion) {
+      var onScrollParallax = function () {
+        parallaxEls.forEach(function (el) {
+          var rect = el.parentElement.getBoundingClientRect();
+          var offset = rect.top * 0.12;
+          el.style.transform = 'translateY(' + offset.toFixed(1) + 'px)';
+        });
+      };
+      window.addEventListener('scroll', function () { requestAnimationFrame(onScrollParallax); }, { passive: true });
+      onScrollParallax();
+    }
+
+    // Subtle magnetic hover on primary buttons (pointer devices only)
+    if (window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reduceMotion) {
+      document.querySelectorAll('.magnetic').forEach(function (el) {
+        el.addEventListener('mousemove', function (e) {
+          var rect = el.getBoundingClientRect();
+          var x = e.clientX - rect.left - rect.width / 2;
+          var y = e.clientY - rect.top - rect.height / 2;
+          el.style.transform = 'translate(' + (x * 0.18).toFixed(1) + 'px, ' + (y * 0.28).toFixed(1) + 'px)';
+        });
+        el.addEventListener('mouseleave', function () { el.style.transform = ''; });
+      });
     }
   })();
 </script>
