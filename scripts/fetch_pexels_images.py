@@ -32,9 +32,9 @@ IMAGES = [
     {
         "filename": "hero-woonkamer",
         "query": "person taping cardboard moving box home natural light",
-        "orientation": "portrait",
-        "width": 1000,
-        "height": 1250,
+        "orientation": "landscape",
+        "width": 1600,
+        "height": 1000,
     },
     {
         "filename": "dienst-woningontruiming",
