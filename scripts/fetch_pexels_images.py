@@ -31,7 +31,7 @@ GRADE_BRIGHTNESS = 1.01
 IMAGES = [
     {
         "filename": "hero-woonkamer",
-        "query": "stack plain cardboard moving boxes cozy living room",
+        "query": "person taping cardboard moving box home natural light",
         "orientation": "portrait",
         "width": 1000,
         "height": 1250,
