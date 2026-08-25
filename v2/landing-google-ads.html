@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Huisontruiming na overlijden | Gratis inventarisatie | Zorgzaam Ontruimd</title>
-<meta name="description" content="Huis ontruimen na overlijden? Gratis en vrijblijvende inventarisatie, vaste prijs vooraf, bezemschone oplevering. Wij nemen het rustig en respectvol uit handen — heel Nederland.">
+<meta name="description" content="Huis ontruimen na overlijden? Gratis inventarisatie en vaste prijs vooraf. Wij nemen het rustig en respectvol uit handen, door heel Nederland.">
 <meta name="robots" content="noindex, nofollow">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --bg: #F3F1EA; --bg-warm: #ECE7DB; --kaart: #FBFAF6;
-    --deep: #26424A; --deep-donker: #1B3138;
-    --koper: #B5623A; --koper-licht: #C97D57;
+    --bg: #F1EFE4; --bg-warm: #E9E3D3; --kaart: #FBFAF6;
+    --deep: #1F3A42; --deep-donker: #16292F;
+    --koper: #A85A34; --koper-licht: #C97D57;
     --inkt: #1C2B2E; --inkt-zacht: #52605F;
     --lijn: rgba(28, 43, 46, 0.15); --lijn-sterk: rgba(28, 43, 46, 0.3);
   }
@@ -36,8 +36,8 @@
   .bar { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; border-bottom: 1px solid var(--lijn); }
   .logo { font-family: 'Cormorant', serif; font-size: 1.3rem; font-weight: 600; display: flex; align-items: center; gap: 10px; }
   .logo-mark { width: 32px; height: 32px; flex-shrink: 0; }
-  .bar-phone { display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 0.92rem; color: var(--deep); }
-  .bar-phone svg { width: 17px; height: 17px; stroke: var(--deep); }
+  .bar-note { display: flex; align-items: center; gap: 8px; font-weight: 500; font-size: 0.88rem; color: var(--inkt-zacht); }
+  .bar-note svg { width: 16px; height: 16px; stroke: var(--koper); flex-shrink: 0; }
 
   .hero { padding: 44px 0 56px; }
   .hero-inner { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 48px; align-items: start; }
@@ -72,6 +72,7 @@
   .btn-primary:hover { background: var(--deep-donker); }
   .form-note { font-family: 'JetBrains Mono', monospace; font-size: 0.7rem; color: var(--inkt-zacht); margin-top: 14px; text-align: center; letter-spacing: 0.01em; }
   .privacy-note { font-size: 0.76rem; color: var(--inkt-zacht); margin-top: 10px; }
+  .hp-field { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
 
   .werkwijze { background: var(--bg-warm); border-top: 1px solid var(--lijn); border-bottom: 1px solid var(--lijn); padding: 60px 0; }
   .section-head { max-width: 600px; margin-bottom: 40px; }
@@ -116,8 +117,12 @@
     .stappen-grid { grid-template-columns: 1fr; }
     .field-row { grid-template-columns: 1fr; }
     .form-card { padding: 22px; }
-    .bar-phone span.txt { display: none; }
+    .bar-note span.txt { display: none; }
   }
+
+  .wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 250; }
+  .wa-btn { width: 56px; height: 56px; border-radius: 50%; background: #25D366; display: flex; align-items: center; justify-content: center; box-shadow: 0 12px 28px rgba(37,211,102,0.4); border: 3px solid var(--kaart); }
+  .wa-btn svg { width: 28px; height: 28px; fill: #fff; }
   @media (prefers-reduced-motion: reduce) { * { animation: none !important; transition: none !important; } }
 </style>
 </head>
@@ -126,26 +131,26 @@
 <div class="bar container" style="max-width:1100px; margin:0 auto;">
   <a href="#" class="logo">
     <svg class="logo-mark" viewBox="0 0 44 44" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="22" cy="22" r="20" stroke="#26424A" stroke-width="1.1"/>
-      <path d="M14 24.5L22 16L30 24.5" stroke="#26424A" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M16.5 23V31.5H27.5V23" stroke="#26424A" stroke-width="1.7" stroke-linejoin="round"/>
-      <path d="M13 27.5C15.7 30.2 18.7 31.5 22 31.5C25.3 31.5 28.3 30.2 31 27.5" stroke="#B5623A" stroke-width="1.6" stroke-linecap="round"/>
+      <path d="M22 2.8L39.5 12.4V31.6L22 41.2L4.5 31.6V12.4L22 2.8Z" stroke="#1F3A42" stroke-width="1.4" stroke-linejoin="round"/>
+      <path d="M13.5 24.5L22 15.2L30.5 24.5" stroke="#1F3A42" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M16.2 23V32H27.8V23" stroke="#1F3A42" stroke-width="2.1" stroke-linejoin="round"/>
+      <path d="M12.5 28C15.4 30.6 18.6 31.9 22 31.9C25.4 31.9 28.6 30.6 31.5 28" stroke="#A85A34" stroke-width="1.9" stroke-linecap="round"/>
     </svg>
     Zorgzaam Ontruimd
   </a>
-  <a href="tel:+31000000000" class="bar-phone">
-    <svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.4 2.1L8 9.7a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z" stroke-width="1.6" stroke-linejoin="round"/></svg>
-    <span class="txt">[telefoonnummer volgt]</span>
-  </a>
+  <span class="bar-note">
+    <svg viewBox="0 0 24 24" fill="none"><circle cx="12" cy="12" r="9" stroke-width="1.6"/><path d="M12 7v5l3.5 2" stroke-width="1.6" stroke-linecap="round"/></svg>
+    <span class="txt">Reactie binnen 1 werkdag</span>
+  </span>
 </div>
 
 <main>
   <section class="hero">
     <div class="container hero-inner">
       <div class="hero-copy">
-        <span class="eyebrow">Ontruiming na overlijden — heel Nederland</span>
+        <span class="eyebrow">Ontruiming na overlijden, heel Nederland</span>
         <h1>Het huis van een dierbare, <em>rustig en zorgvuldig</em> leeggehaald.</h1>
-        <p class="lead">U heeft al genoeg aan uw hoofd. Wij nemen de ontruiming van begin tot eind uit handen — met aandacht voor persoonlijke spullen en een vaste prijs die u vooraf weet.</p>
+        <p class="lead">U heeft al genoeg aan uw hoofd. Wij nemen de ontruiming van begin tot eind uit handen, met aandacht voor persoonlijke spullen en een vaste prijs die u vooraf weet.</p>
 
         <div class="vak-row">
           <span class="vak-label">gratis inventarisatie</span>
@@ -163,6 +168,10 @@
         <p class="sub">Twee stappen, klaar in een halve minuut.</p>
 
         <form action="#" method="post">
+          <div class="hp-field" aria-hidden="true">
+            <label for="website">Website (niet invullen)</label>
+            <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+          </div>
           <div class="field">
             <label>Waar gaat het om?</label>
             <div class="radio-group">
@@ -218,7 +227,7 @@
         <div class="stap-card">
           <div class="stap-num mono">STAP — 01</div>
           <h3>U neemt contact op</h3>
-          <p>Vul het formulier in of bel ons. Wij plannen de inventarisatie op een moment dat u uitkomt.</p>
+          <p>Vul het formulier in. Wij plannen de inventarisatie op een moment dat u uitkomt.</p>
         </div>
         <div class="stap-card">
           <div class="stap-num mono">STAP — 02</div>
@@ -242,7 +251,7 @@
   <section class="waarom">
     <div class="container">
       <div class="section-head center" style="margin-left:auto;margin-right:auto;">
-        <h2 style="margin:0 auto;">Waarom mensen ons bellen</h2>
+        <h2 style="margin:0 auto;">Waarom mensen voor ons kiezen</h2>
       </div>
       <div class="waarom-grid">
         <div class="waarom-card">
@@ -301,8 +310,14 @@
 </main>
 
 <footer>
-  <div class="container">ZORGZAAM ONTRUIMD — ACTIEF IN HEEL NEDERLAND</div>
+  <div class="container">ZORGZAAM ONTRUIMD · ACTIEF IN HEEL NEDERLAND</div>
 </footer>
+
+<div class="wa-float">
+  <a href="#offerte-form" class="wa-btn" aria-label="WhatsApp, binnenkort beschikbaar, gebruik nu het formulier">
+    <svg viewBox="0 0 32 32"><path d="M16.001 3C9.096 3 3.5 8.596 3.5 15.5c0 2.42.687 4.68 1.878 6.598L3 29l7.086-2.34a12.44 12.44 0 005.915 1.507c6.905 0 12.5-5.596 12.5-12.5S22.906 3 16.001 3zm7.32 17.784c-.31.874-1.53 1.6-2.51 1.807-.668.14-1.54.252-4.474-.96-3.756-1.556-6.174-5.362-6.362-5.61-.18-.248-1.518-2.02-1.518-3.854s.955-2.736 1.294-3.11c.31-.34.68-.425.906-.425.226 0 .453.002.65.012.226.01.51-.086.797.607.31.75 1.055 2.585 1.146 2.773.09.19.15.412.03.66-.12.248-.18.4-.36.616-.18.216-.378.484-.54.65-.18.185-.367.386-.158.756.21.372.93 1.535 1.996 2.487 1.372 1.224 2.53 1.603 2.9 1.783.37.18.586.15.803-.09.216-.24.93-1.08 1.178-1.45.248-.372.496-.31.833-.186.34.124 2.16 1.02 2.53 1.207.37.185.617.278.708.433.09.155.09.897-.22 1.77z"/></svg>
+  </a>
+</div>
 
 </body>
 </html>
