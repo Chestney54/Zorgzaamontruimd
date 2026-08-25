@@ -66,7 +66,7 @@ IMAGES = [
     },
     {
         "filename": "dienst-senioren",
-        "query": "elderly woman grey hair downsizing packing boxes family help",
+        "query": "senior citizen packing books cardboard box living room",
         "orientation": "portrait",
         "width": 1000,
         "height": 1250,
