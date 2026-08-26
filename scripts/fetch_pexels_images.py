@@ -31,7 +31,7 @@ GRADE_BRIGHTNESS = 1.01
 IMAGES = [
     {
         "filename": "hero-woonkamer",
-        "query": "man taping plain unmarked moving box bright apartment",
+        "query": "hands sealing cardboard box packing tape closeup",
         "orientation": "landscape",
         "width": 1600,
         "height": 1000,
