@@ -38,7 +38,7 @@ IMAGES = [
     },
     {
         "filename": "dienst-woningontruiming",
-        "query": "mover carrying green sofa out of house",
+        "query": "movers carrying couch upstairs apartment building",
         "orientation": "landscape",
         "width": 1200,
         "height": 900,
