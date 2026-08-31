@@ -305,6 +305,35 @@
   .vak-row { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
   .hero .vak-label { background: rgba(251,250,246,0.1); border-color: rgba(241,239,228,0.35); color: var(--bg); backdrop-filter: blur(6px); }
 
+  /* ===== HERO OFFERTE-KAART (2-staps: dienst kiezen, dan gegevens) ===== */
+  .hero-content-split { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 48px; align-items: start; }
+  .form-card { background: var(--kaart); border: 1px solid var(--lijn-sterk); padding: 32px; box-shadow: 0 24px 60px rgba(15,27,31,0.35); }
+  .form-card form { background: none; border: none; padding: 0; }
+  .form-card h2 { font-size: 1.4rem; margin-bottom: 6px; font-weight: 500; }
+  .form-card .sub { font-size: 0.88rem; color: var(--inkt-zacht); margin-bottom: 20px; }
+  .step-progress-track { height: 4px; background: var(--lijn); margin-bottom: 10px; }
+  .step-progress-bar { height: 100%; background: var(--koper); width: 50%; transition: width 0.3s ease; }
+  .step-label { font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.7rem; color: var(--inkt-zacht); text-transform: uppercase; letter-spacing: 0.02em; margin-bottom: 18px; }
+  .form-step { display: none; }
+  .form-step.is-active { display: block; }
+  .option-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 10px; }
+  .option-card {
+    position: relative; display: flex; flex-direction: column; gap: 9px; align-items: flex-start;
+    padding: 12px; border: 1px solid var(--lijn-sterk); background: var(--bg); font-size: 0.82rem; color: var(--inkt);
+    cursor: pointer; transition: border-color 0.15s ease, background 0.15s ease;
+  }
+  .option-card input { position: absolute; opacity: 0; pointer-events: none; }
+  .option-card .ic { width: 26px; height: 26px; display: flex; align-items: center; justify-content: center; background: var(--bg-warm); flex-shrink: 0; }
+  .option-card .ic svg { width: 14px; height: 14px; stroke: var(--koper); }
+  .option-card:hover { border-color: var(--koper); }
+  .option-card.is-checked { border-color: var(--koper); background: var(--kaart); }
+  .option-card.is-checked .ic { background: var(--koper); }
+  .option-card.is-checked .ic svg { stroke: var(--kaart); }
+  .option-card-wide { flex-direction: row; align-items: center; margin-bottom: 16px; }
+  .btn-full { width: 100%; }
+  .btn-link { display: block; width: 100%; text-align: center; margin-top: 12px; font-size: 0.85rem; color: var(--inkt-zacht); text-decoration: underline; background: none; border: none; cursor: pointer; padding: 0; }
+  @media (max-width: 480px) { .option-grid { grid-template-columns: 1fr; } }
+
   .hero-scroll-cue {
     position: absolute; z-index: 1; bottom: 26px; left: 50%; transform: translateX(-50%);
     color: rgba(241,239,228,0.75); display: flex; flex-direction: column; align-items: center; gap: 6px;
@@ -531,7 +560,7 @@
   form { background: var(--kaart); border: 1px solid var(--lijn-sterk); padding: 40px; }
   .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
   .field { margin-bottom: 20px; }
-  .field label { display: block; font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.72rem; letter-spacing: 0.02em; margin-bottom: 9px; color: var(--inkt-zacht); text-transform: uppercase; }
+  .field > label { display: block; font-family: 'Montserrat', sans-serif; font-weight: 500; font-size: 0.72rem; letter-spacing: 0.02em; margin-bottom: 9px; color: var(--inkt-zacht); text-transform: uppercase; }
   .field input, .field select, .field textarea { width: 100%; padding: 13px 15px; border: 1px solid var(--lijn-sterk); background: var(--bg); font-family: 'Inter', sans-serif; font-size: 0.95rem; color: var(--inkt); border-radius: 0; }
   .field select { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2352605F' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 14px center; background-size: 16px; padding-right: 40px; }
   .field input:focus, .field select:focus, .field textarea:focus { border-color: var(--koper); outline: none; }
@@ -583,6 +612,7 @@
     .footer-inner { grid-template-columns: 1fr; }
     .prijs-layout { grid-template-columns: 1fr; }
     .prijs-card { position: static; }
+    .hero-content-split { grid-template-columns: 1fr; }
   }
   @media (max-width: 720px) {
     nav { display: none; }
@@ -590,7 +620,7 @@
     .factor { grid-template-columns: 22px 1fr; }
     .form-row { grid-template-columns: 1fr; }
     section { padding: 64px 0; }
-    .hero { min-height: 78vh; }
+    .hero { min-height: auto; }
     .hero-content { padding: 130px 0 60px; }
     .mobile-cta-bar { display: flex; }
     body { padding-bottom: 78px; }
@@ -712,20 +742,61 @@
       <img src="images/hero-woonkamer.jpg" alt="Iemand pakt zorgvuldig een verhuisdoos in tijdens een woningontruiming" loading="eager" fetchpriority="high" width="1600" height="1000">
     </div>
     <div class="container hero-content">
-      <span class="eyebrow">Woning- &amp; bedrijfsontruiming in heel Nederland</span>
-      <h1>Ruimte maken, <em>zonder gedoe.</em></h1>
-      <p class="lead">Of het nu gaat om een verhuizing, verkoop, seniorenverhuizing, een overlijden of het leegruimen van een bedrijfspand: wij ontruimen woningen, kamers, zolders, garages en bedrijfsruimtes met rust, precisie en respect, van eerste rondgang tot bezemschone oplevering, tegen één vaste prijs die u vooraf kent.</p>
+      <div class="hero-content-split">
+        <div class="hero-copy">
+          <span class="eyebrow">Woning- &amp; bedrijfsontruiming in heel Nederland</span>
+          <h1>Ruimte maken, <em>zonder gedoe.</em></h1>
+          <p class="lead">Of het nu gaat om een verhuizing, verkoop, seniorenverhuizing, een overlijden of het leegruimen van een bedrijfspand: wij ontruimen woningen, kamers, zolders, garages en bedrijfsruimtes met rust, precisie en respect, van eerste rondgang tot bezemschone oplevering, tegen één vaste prijs die u vooraf kent.</p>
 
-      <div class="vak-row">
-        <span class="vak-label">gratis inventarisatie</span>
-        <span class="vak-label">vaste prijs vooraf</span>
-        <span class="vak-label">reactie binnen 1 werkdag</span>
-        <span class="vak-label">heel nederland</span>
-      </div>
+          <div class="vak-row">
+            <span class="vak-label">gratis inventarisatie</span>
+            <span class="vak-label">vaste prijs vooraf</span>
+            <span class="vak-label">reactie binnen 1 werkdag</span>
+            <span class="vak-label">heel nederland</span>
+          </div>
+        </div>
 
-      <div class="hero-actions">
-        <a href="#contact" class="btn btn-copper magnetic">Gratis offerte aanvragen</a>
-        <a href="#diensten" class="btn btn-outline magnetic">Bekijk onze diensten</a>
+        <div class="form-card" id="contact">
+          <h2>Vraag een gratis inventarisatie aan</h2>
+          <p class="sub">Twee stappen, klaar in een halve minuut.</p>
+          <div class="step-progress-track"><div class="step-progress-bar" id="stepProgressBar"></div></div>
+          <p class="step-label" id="stepLabel">Stap 1 van 2</p>
+
+          <form action="#" method="post" id="offerteForm">
+            <div class="hp-field" aria-hidden="true">
+              <label for="website">Website (niet invullen)</label>
+              <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+            </div>
+
+            <div class="form-step is-active" data-step="1">
+              <div class="field">
+                <label>Waar gaat het om?</label>
+                <div class="option-grid">
+                  <label class="option-card"><input type="radio" name="dienst" value="woningontruiming"><span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M3 11.5L12 4l9 7.5" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/><path d="M5.5 10v9.5h13V10" stroke-width="1.7" stroke-linejoin="round"/></svg></span><span>Woningontruiming</span></label>
+                  <label class="option-card"><input type="radio" name="dienst" value="sterfhuis"><span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7.5-4.8-7.5-10.5A5.5 5.5 0 0112 6.2a5.5 5.5 0 017.5 4.3C19.5 16.2 12 21 12 21z" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span>Sterfhuis &amp; nalatenschap</span></label>
+                  <label class="option-card"><input type="radio" name="dienst" value="bezemschoon"><span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 20h16M6 20V9l6-5 6 5v11" stroke-width="1.7" stroke-linejoin="round"/><path d="M9 20v-6h6v6" stroke-width="1.7" stroke-linejoin="round"/></svg></span><span>Bezemschone oplevering</span></label>
+                  <label class="option-card"><input type="radio" name="dienst" value="bedrijf"><span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 21V9l4-3 4 3v12M12 21V6l4-3 4 3v15" stroke-width="1.6" stroke-linejoin="round"/></svg></span><span>Bedrijfs- &amp; kantoorontruiming</span></label>
+                  <label class="option-card"><input type="radio" name="dienst" value="senioren"><span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M4 12h16M15 6l6 6-6 6" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span>Seniorenverhuizing</span></label>
+                  <label class="option-card"><input type="radio" name="dienst" value="spoed"><span class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M13 2L4 14h6l-1 8 9-12h-6l1-8z" stroke-width="1.4" stroke-linejoin="round"/></svg></span><span>Spoedontruiming</span></label>
+                </div>
+                <label class="option-card option-card-wide"><input type="radio" name="dienst" value="anders"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M3 12l6 6L21 6"/></svg></span><span>Ik wil gewoon een gratis inventarisatie</span></label>
+              </div>
+              <button type="button" class="btn btn-copper btn-full" id="toStep2">Volgende stap</button>
+            </div>
+
+            <div class="form-step" data-step="2">
+              <div class="form-row">
+                <div class="field"><label for="naam">Naam</label><input type="text" id="naam" name="naam" autocomplete="name" required></div>
+                <div class="field"><label for="telefoon">Telefoonnummer</label><input type="tel" id="telefoon" name="telefoon" autocomplete="tel" required></div>
+              </div>
+              <div class="field"><label for="email">E-mailadres (optioneel)</label><input type="email" id="email" name="email" autocomplete="email"></div>
+              <div class="field"><label for="opmerkingen">Opmerkingen (optioneel)</label><textarea id="opmerkingen" name="opmerkingen" placeholder="Bijvoorbeeld: type woning, gewenste periode, bijzonderheden..."></textarea></div>
+              <button type="submit" class="btn btn-copper btn-full">Vraag gratis inventarisatie aan</button>
+              <button type="button" class="btn-link" id="backStep1">&larr; Vorige stap</button>
+              <p class="form-note">GEEN KOSTEN &middot; GEEN VERPLICHTINGEN &middot; REACTIE BINNEN 1 WERKDAG</p>
+            </div>
+          </form>
+        </div>
       </div>
     </div>
     <a href="#stat-strip" class="hero-scroll-cue">
@@ -1057,63 +1128,6 @@
     </div>
   </section>
 
-  <!-- CONTACT -->
-  <section class="contact" id="contact">
-    <div class="container contact-inner">
-      <div class="contact-info">
-        <span class="eyebrow" style="margin-bottom:20px;">Gratis &amp; vrijblijvend</span>
-        <h2>Laten we rustig kijken wat er nodig is.</h2>
-        <p class="lead">Vul het formulier in en wij nemen binnen 1 werkdag contact met u op om een gratis inventarisatie in te plannen, op een moment dat u uitkomt.</p>
-
-        <img src="images/contact-inventarisatie.jpg" alt="Notities maken over een geplande inventarisatie voor een ontruiming, met een kop koffie naast een laptop" loading="lazy" width="1000" height="750" style="width:100%;aspect-ratio:4/3;object-fit:cover;margin-bottom:28px;">
-
-        <div class="contact-detail">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6A19.8 19.8 0 012.1 4.2 2 2 0 014.1 2h3a2 2 0 012 1.7c.1.9.3 1.8.6 2.6a2 2 0 01-.4 2.1L8 9.7a16 16 0 006 6l1.3-1.3a2 2 0 012.1-.4c.8.3 1.7.5 2.6.6a2 2 0 011.7 2z" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
-          <div><div class="txt-label mono">BELLEN &amp; WHATSAPP</div><div class="txt-val small">Volgt op korte termijn. Voor nu verwerken wij aanvragen via het formulier hiernaast.</div></div>
-        </div>
-        <div class="contact-detail">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M22 11.1V19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h13" stroke-width="1.6" stroke-linecap="round"/><circle cx="18" cy="6" r="3.2" stroke-width="1.6"/></svg></div>
-          <div><div class="txt-label mono">REACTIETIJD</div><div class="txt-val">Binnen 1 werkdag na uw aanvraag</div></div>
-        </div>
-        <div class="contact-detail">
-          <div class="ic"><svg viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.5-7-10a7 7 0 0114 0c0 5.5-7 10-7 10z" stroke-width="1.6"/></svg></div>
-          <div><div class="txt-label mono">WERKGEBIED</div><div class="txt-val">Heel Nederland</div></div>
-        </div>
-      </div>
-
-      <form action="#" method="post">
-        <div class="hp-field" aria-hidden="true">
-          <label for="website">Website (niet invullen)</label>
-          <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
-        </div>
-        <div class="form-row">
-          <div class="field"><label for="naam">Naam</label><input type="text" id="naam" name="naam" autocomplete="name" required></div>
-          <div class="field"><label for="telefoon">Telefoonnummer</label><input type="tel" id="telefoon" name="telefoon" autocomplete="tel" required></div>
-        </div>
-        <div class="form-row">
-          <div class="field"><label for="email">E-mailadres</label><input type="email" id="email" name="email" autocomplete="email" required></div>
-          <div class="field"><label for="plaats">Plaats van de woning</label><input type="text" id="plaats" name="plaats" autocomplete="address-level2"></div>
-        </div>
-        <div class="field">
-          <label for="dienst">Waar gaat het om?</label>
-          <select id="dienst" name="dienst">
-            <option value="">Kies een dienst (optioneel)</option>
-            <option value="woningontruiming">Woningontruiming</option>
-            <option value="sterfhuis">Sterfhuis &amp; nalatenschap</option>
-            <option value="bezemschoon">Bezemschone oplevering</option>
-            <option value="bedrijf">Bedrijfs- &amp; kantoorontruiming</option>
-            <option value="senioren">Seniorenverhuizing</option>
-            <option value="spoed">Spoedontruiming</option>
-            <option value="anders">Anders / weet ik nog niet</option>
-          </select>
-        </div>
-        <div class="field"><label for="bericht">Vertel kort over de situatie</label><textarea id="bericht" name="bericht" placeholder="Bijvoorbeeld: type woning, gewenste periode, bijzonderheden..."></textarea></div>
-        <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center;">Vraag gratis inventarisatie aan</button>
-        <p class="form-note">GEEN KOSTEN · GEEN VERPLICHTINGEN · REACTIE BINNEN 1 WERKDAG</p>
-        <p class="form-privacy">Uw gegevens worden uitsluitend gebruikt om contact met u op te nemen over uw aanvraag.</p>
-      </form>
-    </div>
-  </section>
 
 </main>
 
@@ -1208,6 +1222,29 @@
     var waBubble = document.getElementById('waBubble');
     if (waClose && waBubble) {
       waClose.addEventListener('click', function (e) { e.preventDefault(); waBubble.classList.add('hidden'); });
+    }
+
+    var offerteForm = document.getElementById('offerteForm');
+    if (offerteForm) {
+      var steps = offerteForm.querySelectorAll('.form-step');
+      var bar = document.getElementById('stepProgressBar');
+      var label = document.getElementById('stepLabel');
+      var goToStep = function (n) {
+        steps.forEach(function (s) { s.classList.toggle('is-active', s.dataset.step === String(n)); });
+        if (bar) bar.style.width = (n === 1 ? '50%' : '100%');
+        if (label) label.textContent = 'Stap ' + n + ' van 2';
+      };
+      var next = document.getElementById('toStep2');
+      var back = document.getElementById('backStep1');
+      if (next) next.addEventListener('click', function () { goToStep(2); });
+      if (back) back.addEventListener('click', function () { goToStep(1); });
+      offerteForm.querySelectorAll('.option-card input[type=radio]').forEach(function (input) {
+        input.addEventListener('change', function () {
+          offerteForm.querySelectorAll('input[name="' + input.name + '"]').forEach(function (i) {
+            i.closest('.option-card').classList.toggle('is-checked', i.checked);
+          });
+        });
+      });
     }
     var ddParent = document.querySelector('.has-dropdown');
     var ddTrigger = ddParent ? ddParent.querySelector('.dd-trigger') : null;
